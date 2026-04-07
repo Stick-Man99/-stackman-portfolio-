@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档中心 - Stack Man</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='35' r='15' fill='none' stroke='%236366f1' stroke-width='3'/%3E%3Ccircle cx='45' cy='32' r='2' fill='%236366f1'/%3E%3Ccircle cx='55' cy='32' r='2' fill='%236366f1'/%3E%3Cpath d='M 42 40 Q 50 45 58 40' fill='none' stroke='%236366f1' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=2026040608">
+    
+    <!-- 防止页面切换时闪白 -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <header class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <svg class="logo-stickman" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="20" cy="14" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <circle cx="18" cy="12" r="1" fill="currentColor"/>
+                        <circle cx="22" cy="12" r="1" fill="currentColor"/>
+                        <path d="M 17 16 Q 20 18 23 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="20" y1="20" x2="20" y2="30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="20" y1="23" x2="14" y2="27" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="20" y1="23" x2="26" y2="27" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="20" y1="30" x2="16" y2="38" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="20" y1="30" x2="24" y2="38" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <span class="logo-text">Stack Man</span>
+                </a>
+                <button class="nav-toggle" id="navToggle"><span class="hamburger"></span></button>
+                <nav class="nav-menu" id="navMenu">
+                    <a href="index.html" class="nav-link">首页</a>
+                    <a href="about.html" class="nav-link">关于</a>
+                    <div class="nav-dropdown">
+                        <button class="nav-link dropdown-toggle">服务 <i class="fas fa-chevron-down"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="services/competition.html" class="dropdown-item">竞赛服务</a>
+                            <a href="services/school.html" class="dropdown-item">校方合作</a>
+                            <a href="services/research.html" class="dropdown-item">教研成果</a>
+                            <a href="services/policy.html" class="dropdown-item">政策资讯</a>
+                            <a href="services/cases.html" class="dropdown-item">学员案例</a>
+                        </div>
+                    </div>
+                    <a href="docs.html" class="nav-link active">文档</a>
+                    <a href="blog.html" class="nav-link">博客</a>
+                    <a href="contact.html" class="nav-link">联系</a>
+                    <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></button>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title" data-aos="fade-up">文档中心</h1>
+                <p class="page-subtitle" data-aos="fade-up" data-aos-delay="100">信息学竞赛学习资源与文档</p>
+            </div>
+        </section>
+        
+        <section class="docs-section">
+            <div class="container">
+                <div class="docs-grid">
+                    <div class="doc-category" data-aos="fade-up">
+                        <div class="doc-category-icon"><i class="fas fa-book-open"></i></div>
+                        <h3>入门指南</h3>
+                        <p>零基础学习信息学竞赛的完整路径</p>
+                        <ul class="doc-list">
+                            <li><a href="#"><i class="fas fa-file-code"></i> C++ 编程入门</a></li>
+                            <li><a href="#"><i class="fas fa-brain"></i> 算法基础概念</a></li>
+                            <li><a href="#"><i class="fas fa-clipboard-list"></i> 竞赛规则说明</a></li>
+                            <li><a href="#"><i class="fas fa-laptop-code"></i> 学习环境配置</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="doc-category" data-aos="fade-up" data-aos-delay="100">
+                        <div class="doc-category-icon"><i class="fas fa-brain"></i></div>
+                        <h3>算法专题</h3>
+                        <p>各类算法知识点的详细讲解</p>
+                        <ul class="doc-list">
+                            <li><a href="#"><i class="fas fa-sort"></i> 排序算法大全</a></li>
+                            <li><a href="#"><i class="fas fa-project-diagram"></i> 动态规划入门</a></li>
+                            <li><a href="#"><i class="fas fa-project-diagram"></i> 图论基础</a></li>
+                            <li><a href="#"><i class="fas fa-sitemap"></i> 数据结构精讲</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="doc-category" data-aos="fade-up" data-aos-delay="200">
+                        <div class="doc-category-icon"><i class="fas fa-file-alt"></i></div>
+                        <h3>历年真题</h3>
+                        <p>CSP/NOIP 历年真题与解析</p>
+                        <ul class="doc-list">
+                            <li><a href="#"><i class="fas fa-file-alt"></i> 2024 CSP-J 试题</a></li>
+                            <li><a href="#"><i class="fas fa-file-alt"></i> 2024 CSP-S 试题</a></li>
+                            <li><a href="#"><i class="fas fa-history"></i> NOIP 历年真题</a></li>
+                            <li><a href="#"><i class="fas fa-pencil-alt"></i> 模拟试题精选</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="doc-category" data-aos="fade-up" data-aos-delay="300">
+                        <div class="doc-category-icon"><i class="fas fa-lightbulb"></i></div>
+                        <h3>备考攻略</h3>
+                        <p>竞赛备考技巧与经验分享</p>
+                        <ul class="doc-list">
+                            <li><a href="#"><i class="fas fa-rocket"></i> 考前冲刺指南</a></li>
+                            <li><a href="#"><i class="fas fa-clock"></i> 时间管理技巧</a></li>
+                            <li><a href="#"><i class="fas fa-exclamation-triangle"></i> 常见错误分析</a></li>
+                            <li><a href="#"><i class="fas fa-smile"></i> 心态调整方法</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="doc-category" data-aos="fade-up" data-aos-delay="400">
+                        <div class="doc-category-icon"><i class="fas fa-newspaper"></i></div>
+                        <h3>政策资讯</h3>
+                        <p>最新竞赛政策与官方通知</p>
+                        <ul class="doc-list">
+                            <li><a href="#"><i class="fas fa-bullhorn"></i> CSP 认证通知</a></li>
+                            <li><a href="#"><i class="fas fa-sign-in-alt"></i> NOIP 报名指南</a></li>
+                            <li><a href="#"><i class="fas fa-certificate"></i> GESP 等级考试</a></li>
+                            <li><a href="#"><i class="fas fa-newspaper"></i> 政策解读文章</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="doc-category" data-aos="fade-up" data-aos-delay="500">
+                        <div class="doc-category-icon"><i class="fas fa-code"></i></div>
+                        <h3>代码模板</h3>
+                        <p>常用算法代码模板与库函数</p>
+                        <ul class="doc-list">
+                            <li><a href="#"><i class="fas fa-tools"></i> STL 常用函数</a></li>
+                            <li><a href="#"><i class="fas fa-code"></i> 算法模板大全</a></li>
+                            <li><a href="#"><i class="fas fa-bug"></i> 调试技巧总结</a></li>
+                            <li><a href="#"><i class="fas fa-ruler-combined"></i> 代码规范指南</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <div class="container">
+                <h2 data-aos="fade-up">需要更多帮助？</h2>
+                <p data-aos="fade-up" data-aos-delay="100">欢迎联系我获取更多学习资源</p>
+                <div class="cta-buttons" data-aos="fade-up" data-aos-delay="200">
+                    <a href="contact.html" class="btn btn-primary">联系我</a>
+                    <a href="index.html" class="btn btn-secondary">返回首页</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <svg class="footer-stickman" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="14" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                            <circle cx="18" cy="12" r="1" fill="currentColor"/>
+                            <circle cx="22" cy="12" r="1" fill="currentColor"/>
+                            <path d="M 17 16 Q 20 18 23 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <line x1="20" y1="20" x2="20" y2="30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <line x1="20" y1="23" x2="14" y2="27" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <line x1="20" y1="23" x2="26" y2="27" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <line x1="20" y1="30" x2="16" y2="38" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <line x1="20" y1="30" x2="24" y2="38" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span class="logo-text">Stack Man</span>
+                    </div>
+                    <p class="footer-slogan">懂算法的段子手，信息学竞赛助手</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column"><h4>服务</h4><ul><li><a href="services/competition.html">竞赛服务</a></li><li><a href="services/school.html">校方合作</a></li><li><a href="services/research.html">教研成果</a></li></ul></div>
+                    <div class="footer-column"><h4>资源</h4><ul><li><a href="docs.html">文档中心</a></li><li><a href="blog.html">博客文章</a></li></ul></div>
+                    <div class="footer-column"><h4>关于</h4><ul><li><a href="about.html">关于我</a></li><li><a href="contact.html">联系我</a></li></ul></div>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fas fa-paper-plane"></i></a>
+                    <a href="https://github.com/Stick-Man99" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="mailto:example@email.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 Stack Man. Made with <i class="fas fa-heart"></i> and code.</p></div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

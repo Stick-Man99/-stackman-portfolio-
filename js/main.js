@@ -1,333 +1,366 @@
 /**
- * Stack Man 个人网站 - 主脚本文件
- * 功能：主题切换、导航栏滚动效果、移动端菜单、粒子效果、滚动动画
+ * Stack Man Website - Main Script
+ * Version: v2.0
  */
 
-(function() {
-    'use strict';
+// ===================================
+// Console Welcome Message
+// ===================================
+console.log('%cWelcome to Stack Man\'s website!', 'font-size: 20px; color: #6366f1; font-weight: bold;');
+console.log('%cAI Assistant for Informatics Competition', 'font-size: 14px; color: #8b5cf6;');
 
-    // ===================================
-    // DOM 元素
-    // ===================================
-    const navbar = document.getElementById('navbar');
-    const navToggle = document.getElementById('navToggle');
-    const navMenu = document.getElementById('navMenu');
-    const themeToggle = document.getElementById('themeToggle');
-    const particlesContainer = document.getElementById('particles');
-    const navLinks = document.querySelectorAll('.nav-link');
+// ===================================
+// Theme Toggle - Enhanced with smooth transition
+// ===================================
+const themeToggle = document.getElementById('themeToggle');
+const html = document.documentElement;
 
-    // ===================================
-    // 主题管理
-    // ===================================
-    const ThemeManager = {
-        key: 'stackman-theme',
-        
-        init() {
-            // 从 localStorage 读取主题
-            const savedTheme = localStorage.getItem(this.key);
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            
-            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-                this.setDark();
-            } else {
-                this.setLight();
-            }
-            
-            // 绑定事件
-            themeToggle.addEventListener('click', () => this.toggle());
-        },
-        
-        isDark() {
-            return document.documentElement.getAttribute('data-theme') === 'dark';
-        },
-        
-        setDark() {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem(this.key, 'dark');
-        },
-        
-        setLight() {
-            document.documentElement.removeAttribute('data-theme');
-            localStorage.setItem(this.key, 'light');
-        },
-        
-        toggle() {
-            if (this.isDark()) {
-                this.setLight();
-            } else {
-                this.setDark();
-            }
-        }
-    };
+// Get theme from localStorage
+function getTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    return savedTheme || 'dark'; // Default dark theme
+}
 
-    // ===================================
-    // 导航栏滚动效果
-    // ===================================
-    const NavbarScroll = {
-        threshold: 50,
+// Set theme with smooth transition
+function setTheme(theme) {
+    // Add transition class for smooth animation
+    document.body.classList.add('theme-transitioning');
+    
+    // Small delay to ensure transition class is applied
+    requestAnimationFrame(() => {
+        html.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
         
-        init() {
-            window.addEventListener('scroll', () => this.handleScroll(), { passive: true });
-            this.handleScroll(); // 初始检查
-        },
-        
-        handleScroll() {
-            if (window.scrollY > this.threshold) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        }
-    };
+        // Remove transition class after animation completes
+        setTimeout(() => {
+            document.body.classList.remove('theme-transitioning');
+        }, 400); // Match CSS transition duration
+    });
+}
 
-    // ===================================
-    // 移动端菜单
-    // ===================================
-    const MobileMenu = {
-        init() {
-            navToggle.addEventListener('click', () => this.toggle());
-            
-            // 点击导航链接后关闭菜单
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => this.close());
-            });
-            
-            // 点击菜单外部关闭
-            document.addEventListener('click', (e) => {
-                if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
-                    this.close();
-                }
-            });
-        },
-        
-        toggle() {
-            navMenu.classList.toggle('active');
-            navToggle.classList.toggle('active');
-        },
-        
-        close() {
-            navMenu.classList.remove('active');
+// Initialize theme
+setTheme(getTheme());
+
+// Theme toggle event
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        setTheme(newTheme);
+    });
+}
+
+// ===================================
+// Navbar Scroll Effect
+// ===================================
+const navbar = document.getElementById('navbar');
+
+function handleScroll() {
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+}
+
+window.addEventListener('scroll', handleScroll, { passive: true });
+
+// ===================================
+// Mobile Navigation Menu
+// ===================================
+const navToggle = document.getElementById('navToggle');
+const navMenu = document.getElementById('navMenu');
+
+if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+    
+    // Close menu when clicking nav link
+    navMenu.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(link => {
+        link.addEventListener('click', () => {
             navToggle.classList.remove('active');
-        }
-    };
-
-    // ===================================
-    // 平滑滚动
-    // ===================================
-    const SmoothScroll = {
-        init() {
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', (e) => {
-                    const href = anchor.getAttribute('href');
-                    if (href === '#') return;
-                    
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        const offsetTop = target.offsetTop - 80; // 减去导航栏高度
-                        window.scrollTo({
-                            top: offsetTop,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
+            navMenu.classList.remove('active');
+        });
+    });
+    
+    // Mobile dropdown accordion effect
+    const dropdowns = navMenu.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(dropdown => {
+        const toggle = dropdown.querySelector('.dropdown-toggle');
+        if (toggle) {
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                dropdown.classList.toggle('active');
             });
         }
-    };
+    });
+}
 
-    // ===================================
-    // 粒子背景效果
-    // ===================================
-    const Particles = {
-        count: 30,
-        
-        init() {
-            if (!particlesContainer) return;
-            
-            for (let i = 0; i < this.count; i++) {
-                this.createParticle();
+// ===================================
+// Particles Background Initialization
+// ===================================
+if (typeof particlesJS !== 'undefined') {
+    particlesJS('particles', {
+        particles: {
+            number: {
+                value: 80,
+                density: {
+                    enable: true,
+                    value_area: 800
+                }
+            },
+            color: {
+                value: '#6366f1'
+            },
+            shape: {
+                type: 'circle'
+            },
+            opacity: {
+                value: 0.5,
+                random: true
+            },
+            size: {
+                value: 3,
+                random: true
+            },
+            line_linked: {
+                enable: true,
+                distance: 150,
+                color: '#6366f1',
+                opacity: 0.4,
+                width: 1
+            },
+            move: {
+                enable: true,
+                speed: 2,
+                direction: 'none',
+                random: false,
+                straight: false,
+                out_mode: 'out',
+                bounce: false
             }
         },
-        
-        createParticle() {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            
-            // 随机位置
-            const x = Math.random() * 100;
-            const y = Math.random() * 100;
-            
-            // 随机大小
-            const size = Math.random() * 4 + 2;
-            
-            // 随机动画延迟
-            const delay = Math.random() * 15;
-            
-            // 随机颜色（主色调范围内）
-            const colors = ['#6366f1', '#8b5cf6', '#f97316'];
-            const color = colors[Math.floor(Math.random() * colors.length)];
-            
-            particle.style.left = x + '%';
-            particle.style.top = y + '%';
-            particle.style.width = size + 'px';
-            particle.style.height = size + 'px';
-            particle.style.background = color;
-            particle.style.animationDelay = delay + 's';
-            
-            particlesContainer.appendChild(particle);
-        }
-    };
-
-    // ===================================
-    // 滚动动画（Intersection Observer）
-    // ===================================
-    const ScrollAnimations = {
-        init() {
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, observerOptions);
-            
-            // 观察所有需要动画的元素
-            document.querySelectorAll('.skill-category, .project-card, .contact-card').forEach(el => {
-                el.classList.add('fade-in');
-                observer.observe(el);
-            });
-        }
-    };
-
-    // ===================================
-    // 技能标签悬停效果增强
-    // ===================================
-    const SkillTags = {
-        init() {
-            const tags = document.querySelectorAll('.skill-tag');
-            tags.forEach(tag => {
-                tag.addEventListener('mouseenter', (e) => {
-                    // 添加随机的小偏移
-                    const offsetX = (Math.random() - 0.5) * 4;
-                    const offsetY = (Math.random() - 0.5) * 4;
-                    e.target.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
-                });
-                
-                tag.addEventListener('mouseleave', (e) => {
-                    e.target.style.transform = 'translate(0, 0)';
-                });
-            });
-        }
-    };
-
-    // ===================================
-    // 打字机效果（英雄区域标语）
-    // ===================================
-    const TypewriterEffect = {
-        init() {
-            const slogan = document.querySelector('.hero-slogan');
-            if (!slogan) return;
-            
-            const text = slogan.textContent;
-            slogan.textContent = '';
-            slogan.style.borderRight = '2px solid var(--accent)';
-            
-            let i = 0;
-            const type = () => {
-                if (i < text.length) {
-                    slogan.textContent += text.charAt(i);
-                    i++;
-                    setTimeout(type, 50);
-                } else {
-                    slogan.style.borderRight = 'none';
+        interactivity: {
+            detect_on: 'canvas',
+            events: {
+                onhover: {
+                    enable: true,
+                    mode: 'repulse'
+                },
+                onclick: {
+                    enable: true,
+                    mode: 'push'
+                },
+                resize: true
+            },
+            modes: {
+                repulse: {
+                    distance: 100,
+                    duration: 0.4
+                },
+                push: {
+                    particles_nb: 4
                 }
-            };
-            
-            // 延迟开始
-            setTimeout(type, 1500);
-        }
-    };
-
-    // ===================================
-    // 导航链接激活状态
-    // ===================================
-    const ActiveNavLink = {
-        sections: [],
-        
-        init() {
-            // 获取所有 section
-            this.sections = document.querySelectorAll('section[id]');
-            window.addEventListener('scroll', () => this.update(), { passive: true });
-            this.update(); // 初始检查
-        },
-        
-        update() {
-            const scrollY = window.scrollY;
-            
-            this.sections.forEach(section => {
-                const sectionHeight = section.offsetHeight;
-                const sectionTop = section.offsetTop - 100;
-                const sectionId = section.getAttribute('id');
-                
-                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${sectionId}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
-        }
-    };
-
-    // ===================================
-    // 性能优化：节流函数
-    // ===================================
-    function throttle(func, limit) {
-        let inThrottle;
-        return function(...args) {
-            if (!inThrottle) {
-                func.apply(this, args);
-                inThrottle = true;
-                setTimeout(() => inThrottle = false, limit);
             }
-        };
-    }
+        },
+        retina_detect: true
+    });
+}
 
-    // ===================================
-    // 初始化
-    // ===================================
-    function init() {
-        // 等待 DOM 加载完成
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', init);
-            return;
+// ===================================
+// AOS Animation Initialization
+// ===================================
+if (typeof AOS !== 'undefined') {
+    AOS.init({
+        duration: 800,
+        easing: 'ease',
+        once: true,
+        offset: 100,
+        delay: 0
+    });
+}
+
+// ===================================
+// Number Scroll Animation
+// ===================================
+function animateNumber(element, target, duration = 1500) {
+    const start = 0;
+    const increment = target / (duration / 16);
+    let current = start;
+    
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            element.textContent = target + '+';
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(current) + '+';
         }
-        
-        // 初始化所有模块
-        ThemeManager.init();
-        NavbarScroll.init();
-        MobileMenu.init();
-        SmoothScroll.init();
-        Particles.init();
-        ScrollAnimations.init();
-        SkillTags.init();
-        ActiveNavLink.init();
-        
-        // 可选：打字机效果（如果希望标语有打字效果，取消下面注释）
-        // TypewriterEffect.init();
-        
-        // 控制台彩蛋
-        console.log('%c\u{1F99E} Welcome to Stack Man\'s website!', 'font-size: 20px; color: #6366f1; font-weight: bold;');
-        console.log('%c\u{61C2}\u{7B97}\u{6CD5}\u{7684}\u{6BB5}\u{5B50}\u{624B}\u{FF0C}\u{4FE1}\u{606F}\u{5B66}\u{7ADE}\u{8D5B}\u{52A9}\u{624B}', 'font-size: 14px; color: #8b5cf6;');
-    }
+    }, 16);
+}
 
-    init();
-})();
+// Use IntersectionObserver to trigger number animation
+const statNumbers = document.querySelectorAll('.stat-number');
+const numberObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const statNumber = entry.target;
+            const target = parseInt(statNumber.dataset.target);
+            if (!isNaN(target)) {
+                animateNumber(statNumber, target);
+            }
+            numberObserver.unobserve(statNumber);
+        }
+    });
+}, { threshold: 0.5 });
+
+statNumbers.forEach(num => {
+    numberObserver.observe(num);
+});
+
+// ===================================
+// Carousel Component
+// ===================================
+const carouselTrack = document.querySelector('.carousel-track');
+const carouselPrev = document.querySelector('.carousel-prev');
+const carouselNext = document.querySelector('.carousel-next');
+
+if (carouselTrack && carouselPrev && carouselNext) {
+    const cards = carouselTrack.querySelectorAll('.achievement-card');
+    const cardWidth = cards[0] ? cards[0].offsetWidth + 24 : 304;
+    let currentIndex = 0;
+    let autoPlayTimer;
+    
+    function updateCarousel() {
+        const maxIndex = Math.max(0, cards.length - Math.floor(carouselTrack.parentElement.offsetWidth / cardWidth));
+        if (currentIndex > maxIndex) currentIndex = maxIndex;
+        
+        carouselTrack.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    }
+    
+    function nextSlide() {
+        const maxIndex = Math.max(0, cards.length - Math.floor(carouselTrack.parentElement.offsetWidth / cardWidth));
+        currentIndex = (currentIndex + 1) % (maxIndex + 1);
+        updateCarousel();
+    }
+    
+    function prevSlide() {
+        const maxIndex = Math.max(0, cards.length - Math.floor(carouselTrack.parentElement.offsetWidth / cardWidth));
+        currentIndex = currentIndex > 0 ? currentIndex - 1 : maxIndex;
+        updateCarousel();
+    }
+    
+    function startAutoPlay() {
+        autoPlayTimer = setInterval(nextSlide, 3000);
+    }
+    
+    function stopAutoPlay() {
+        if (autoPlayTimer) {
+            clearInterval(autoPlayTimer);
+        }
+    }
+    
+    carouselNext.addEventListener('click', () => {
+        nextSlide();
+        stopAutoPlay();
+        startAutoPlay();
+    });
+    
+    carouselPrev.addEventListener('click', () => {
+        prevSlide();
+        stopAutoPlay();
+        startAutoPlay();
+    });
+    
+    // Pause autoplay on hover
+    carouselTrack.parentElement.addEventListener('mouseenter', stopAutoPlay);
+    carouselTrack.parentElement.addEventListener('mouseleave', startAutoPlay);
+    
+    // Update on window resize
+    window.addEventListener('resize', () => {
+        currentIndex = 0;
+        updateCarousel();
+    });
+    
+    // Start autoplay
+    startAutoPlay();
+}
+
+// ===================================
+// Contact Form Submission
+// ===================================
+const contactForm = document.getElementById('contact-form');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(contactForm);
+        const data = Object.fromEntries(formData);
+        
+        // Add actual submission logic here
+        alert('Thank you for your inquiry! We will reply to you soon.');
+        contactForm.reset();
+    });
+}
+
+// ===================================
+// Smooth Scroll to Anchor
+// ===================================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && href.length > 1) {
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+    });
+});
+
+// ===================================
+// Service Card Click Navigation
+// ===================================
+document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('click', function(e) {
+        // Navigate if not clicking on a link element
+        if (!e.target.closest('a')) {
+            const href = this.getAttribute('href');
+            if (href) {
+                window.location.href = href;
+            }
+        }
+    });
+});
+
+// ===================================
+// Page Load Initialization
+// ===================================
+document.addEventListener('DOMContentLoaded', () => {
+    // Handle navbar initial state
+    handleScroll();
+    
+    // Add page loaded class
+    document.body.classList.add('loaded');
+});
+
+// ===================================
+// Performance Optimization: requestAnimationFrame
+// ===================================
+let ticking = false;
+window.addEventListener('scroll', () => {
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            ticking = false;
+        });
+        ticking = true;
+    }
+}, { passive: true });

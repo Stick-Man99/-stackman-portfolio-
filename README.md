@@ -2,173 +2,202 @@
 
 > 懂算法的段子手，信息学竞赛助手
 
-这是一个为 Stack Man（火柴人）打造的个人介绍网页，采用纯静态技术构建，适用于求职、社交、商务合作等场景。
+## 项目概述
 
-## ? 预览
+这是一个为 Stack Man（火柴人）打造的个人介绍网页，用于展示个人信息、技能、项目作品和联系方式。网站采用纯静态技术构建，具有科技感与轻松风格相结合的视觉效果。
 
-[在线预览链接]（部署后填写）
+## 在线预览
 
-## ? 功能特性
+[点击此处查看在线演示](https://stick-man99.github.io/)
+
+## 技术栈
+
+- **HTML5** - 语义化结构
+- **CSS3** - 现代样式与动画
+- **JavaScript (ES6+)** - 交互功能
+- **Particles.js** - 粒子背景效果
+- **AOS (Animate On Scroll)** - 滚动动画
+- **Font Awesome** - 图标库
+
+## 功能特性
 
 ### 核心功能
-- ? **响应式设计** - 完美适配桌面、平板、手机
-- ? **暗黑模式** - 支持亮色/暗黑主题切换，自动记忆偏好
-- ? **平滑滚动** - 导航栏锚点平滑跳转
-- ? **粒子背景** - 科技感粒子动效
-- ? **滚动动画** - 元素进入视口时淡入动画
+- ? 响应式设计 - 支持桌面、平板、手机
+- ? 暗黑/亮色主题切换
+- ? 粒子背景动效
+- ? 平滑滚动导航
+- ? 移动端汉堡菜单
+- ? 滚动动画效果
 
-### 页面模块
-1. **头部导航** - 固定顶部导航栏，滚动时改变背景
-2. **英雄区域** - 火柴人 SVG 头像 + 姓名 + Slogan + CTA 按钮
-3. **关于我** - 详细介绍个人背景、经历、目标
-4. **技能栈** - 四大分类技能标签展示
-5. **项目作品** - 5 个项目卡片展示
-6. **联系方式** - 飞书、GitHub、邮箱
+### 页面列表
+| 页面 | 文件路径 | 描述 |
+|------|----------|------|
+| 首页 | `index.html` | 个人介绍、核心数据、服务能力、项目作品 |
+| 关于我 | `about.html` | 个人简介、从教经历、教育理念 |
+| 联系我 | `contact.html` | 联系表单、联系方式 |
+| 竞赛服务 | `services/competition.html` | CSP/NOIP 竞赛培训服务详情 |
 
-## ?? 技术栈
-
-| 技术 | 说明 |
-|------|------|
-| HTML5 | 语义化标签 |
-| CSS3 | 自定义属性、Grid 布局、动画 |
-| JavaScript | 原生 ES6+，无依赖 |
-| Google Fonts | Inter + Noto Sans SC 字体 |
-
-## ? 项目结构
+## 项目结构
 
 ```
 strck_man_web/
-├── index.html          # 主页面
+├── index.html              # 主页
+├── about.html              # 关于页面
+├── contact.html            # 联系页面
 ├── css/
-│   └── style.css       # 主样式（含响应式）
+│   └── style.css           # 主样式文件
 ├── js/
-│   └── main.js         # 主脚本
-├── README.md           # 说明文档
-└── images/             # 图片目录（可选）
+│   └── main.js             # 主脚本文件
+├── services/
+│   └── competition.html    # 竞赛服务页面
+└── README.md               # 项目说明
 ```
 
-## ? 快速开始
+## 快速开始
 
-### 本地预览
+### 本地开发
 
-直接双击打开 `index.html` 文件即可在浏览器中预览。
-
-或使用 VS Code 的 Live Server 扩展：
-
-1. 安装 Live Server 扩展
-2. 右键 `index.html` → "Open with Live Server"
-
-### 使用 Python 简易服务器
-
+1. 克隆项目
 ```bash
-# Python 3
-python -m http.server 8000
+git clone <repository-url>
+cd strck_man_web
+```
 
+2. 直接在浏览器中打开
+```bash
+# 方式 1: 直接打开
+open index.html
+
+# 方式 2: 使用 Python 简易服务器
+python -m http.server 8000
 # 访问 http://localhost:8000
 ```
 
-## ? 部署指南
+3. 使用 VS Code Live Server 扩展（推荐）
+   - 安装 Live Server 扩展
+   - 右键 index.html → "Open with Live Server"
+
+## 设计说明
+
+### 色彩方案
+
+| 用途 | 颜色值 | 说明 |
+|------|--------|------|
+| 主色调 | `#6366f1` → `#8b5cf6` | 蓝紫渐变，科技感 |
+| 辅助色 | `#f97316` | 龙虾红/橙色 ? |
+| 深色背景 | `#0f172a` | 暗黑模式背景 |
+| 浅色背景 | `#f8fafc` | 亮色模式背景 |
+
+### 响应式断点
+
+| 设备 | 断点 | 布局 |
+|------|------|------|
+| 桌面大屏 | ≥1024px | 多列布局 |
+| 平板 | ≤1024px | 双列布局 |
+| 手机 | ≤768px | 单列布局，汉堡菜单 |
+
+## 自定义配置
+
+### 修改联系方式
+
+编辑 `index.html`、`contact.html` 和页脚中的联系信息：
+
+```html
+<!-- 飞书 -->
+<div class="contact-value">ou_31d1f97aa62b52b3a3c5bd7d0eeff083</div>
+
+<!-- GitHub -->
+<a href="https://github.com/Stick-Man99" class="social-link">...</a>
+
+<!-- 邮箱 -->
+<a href="mailto:your-email@example.com" class="social-link">...</a>
+```
+
+### 修改主题色
+
+在 `css/style.css` 中修改 CSS 变量：
+
+```css
+:root {
+    --primary-500: #6366f1;  /* 主色 */
+    --accent-500: #f97316;   /* 辅助色 */
+}
+```
+
+## 部署指南
 
 ### GitHub Pages
 
 1. 创建 GitHub 仓库
-2. 推送所有文件到仓库
-3. 进入 Settings → Pages
-4. 选择 `main` 分支，保存
-5. 等待部署完成，访问生成的 URL
+2. 推送项目文件
+```bash
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin <repository-url>
+git push -u origin main
+```
 
-### Vercel
+3. 在仓库设置中启用 GitHub Pages
+   - Settings → Pages
+   - Source: Deploy from branch (main)
+   - Folder: / (root)
 
-1. 安装 Vercel CLI：`npm i -g vercel`
-2. 在项目目录运行：`vercel`
-3. 按提示完成部署
+### Vercel 部署
 
-### Netlify
+1. 访问 [vercel.com](https://vercel.com)
+2. 导入 GitHub 仓库
+3. 自动部署完成
+
+### Netlify 部署
 
 1. 访问 [netlify.com](https://netlify.com)
 2. 拖拽项目文件夹到部署区域
 3. 或连接 GitHub 仓库自动部署
 
-## ? 自定义配置
+## 性能优化
 
-### 修改颜色
+- ? 使用 CDN 加载第三方库
+- ? CSS 压缩（生产环境可进一步压缩）
+- ? 图片使用 SVG 格式（火柴人头像）
+- ? 懒加载动画（AOS）
+- ? 粒子效果按需加载
 
-编辑 `css/style.css` 中的 CSS 变量：
+## 浏览器兼容性
 
-```css
-:root {
-    --primary-start: #6366f1;  /* 主色起始 */
-    --primary-end: #8b5cf6;    /* 主色结束 */
-    --accent: #f97316;         /* 强调色 */
-}
-```
-
-### 修改内容
-
-直接编辑 `index.html` 中的文本内容。
-
-### 添加项目
-
-在 `index.html` 的 `projects-grid` 区域复制项目卡片：
-
-```html
-<div class="project-card">
-    <div class="project-icon">?</div>
-    <h3 class="project-title">项目名称</h3>
-    <p class="project-desc">项目描述</p>
-    <div class="project-tech">
-        <span class="tech-tag">技术 1</span>
-        <span class="tech-tag">技术 2</span>
-    </div>
-</div>
-```
-
-## ? 性能指标
-
-| 指标 | 目标 | 实际 |
-|------|------|------|
-| Lighthouse 性能 | ≥90 | - |
-| 首屏加载时间 | <2s | - |
-| 页面总大小 | <2MB | - |
-
-## ? 可访问性
-
-- ? 语义化 HTML 标签
-- ? 键盘导航支持
-- ? 颜色对比度符合 WCAG 2.1 AA
-- ? 图片 Alt 文本
-- ? ARIA 标签
-
-## ? 浏览器兼容性
-
-| 浏览器 | 版本要求 |
+| 浏览器 | 最低版本 |
 |--------|----------|
-| Chrome | 最近 2 年版本 |
-| Firefox | 最近 2 年版本 |
-| Safari | 最近 2 年版本 |
-| Edge | 最近 2 年版本 |
-| 移动端 | iOS Safari, Chrome Mobile |
+| Chrome | 80+ |
+| Firefox | 75+ |
+| Safari | 13+ |
+| Edge | 80+ |
 
-## ? 待办事项
+## 更新日志
 
-- [ ] 配置自定义域名
-- [ ] 添加真实的 GitHub 链接
-- [ ] 配置联系邮箱
-- [ ] 添加统计代码（可选）
-- [ ] 添加 sitemap.xml（SEO）
+### v2.0 (2026-04-06)
+- ? 新增多页面支持（关于、联系、服务）
+- ? 新增下拉菜单导航
+- ? 新增暗黑/亮色主题切换
+- ? 新增粒子背景效果
+- ? 新增滚动动画
+- ? 优化响应式设计
+- ? 修复移动端导航问题
 
-## ? 许可证
+### v1.0 (2026-04-06)
+- ? 初始版本发布
+- 单页个人介绍网站
 
-MIT License
+## 许可证
 
-## ? 关于
+MIT License ? 2026 Stack Man
 
-**Stack Man（火柴人）** ?
+## 联系方式
 
-- 信息学竞赛教育 AI 助手
-- 懂算法的段子手
-- 培养路径：预科班 → CSP → NOIP → NOI → IOI
+- ? 飞书：`ou_31d1f97aa62b52b3a3c5bd7d0eeff083`
+- ? GitHub: [Stick-Man99](https://github.com/Stick-Man99)
+- ? 邮箱：example@email.com
 
 ---
 
-Made with ? and lots of code.
+**Made with ? and lots of code**

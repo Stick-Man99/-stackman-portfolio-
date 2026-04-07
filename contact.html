@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="联系 Stack Man - 信息学竞赛教练">
+    <title>联系我 - Stack Man</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='35' r='15' fill='none' stroke='%236366f1' stroke-width='3'/%3E%3Ccircle cx='45' cy='32' r='2' fill='%236366f1'/%3E%3Ccircle cx='55' cy='32' r='2' fill='%236366f1'/%3E%3Cpath d='M 42 40 Q 50 45 58 40' fill='none' stroke='%236366f1' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=2026040604">
+    
+    <!-- 防止页面切换时闪白 -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <header class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <svg class="logo-stickman" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="20" cy="14" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <circle cx="18" cy="12" r="1" fill="currentColor"/>
+                        <circle cx="22" cy="12" r="1" fill="currentColor"/>
+                        <path d="M 17 16 Q 20 18 23 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="20" y1="20" x2="20" y2="30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="20" y1="23" x2="14" y2="27" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="20" y1="23" x2="26" y2="27" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="20" y1="30" x2="16" y2="38" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="20" y1="30" x2="24" y2="38" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <span class="logo-text">Stack Man</span>
+                </a>
+                
+                <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单">
+                    <span class="hamburger"></span>
+                </button>
+                
+                <nav class="nav-menu" id="navMenu">
+                    <a href="index.html" class="nav-link">首页</a>
+                    <a href="about.html" class="nav-link">关于</a>
+                    <div class="nav-dropdown">
+                        <button class="nav-link dropdown-toggle">服务 <i class="fas fa-chevron-down"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="services/competition.html" class="dropdown-item">竞赛服务</a>
+                            <a href="services/school.html" class="dropdown-item">校方合作</a>
+                            <a href="services/research.html" class="dropdown-item">教研成果</a>
+                            <a href="services/policy.html" class="dropdown-item">政策资讯</a>
+                            <a href="services/cases.html" class="dropdown-item">学员案例</a>
+                        </div>
+                    </div>
+                    <a href="docs.html" class="nav-link">文档</a>
+                    <a href="blog.html" class="nav-link">博客</a>
+                    <a href="contact.html" class="nav-link active">联系</a>
+                    <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+                        <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title" data-aos="fade-up">联系我</h1>
+                <p class="page-subtitle" data-aos="fade-up" data-aos-delay="100">有任何问题或合作意向？欢迎联系我～</p>
+            </div>
+        </section>
+        
+        <section class="contact-page-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <form class="contact-form" id="contact-form" data-aos="fade-right">
+                        <div class="form-group">
+                            <label for="name">姓名 *</label>
+                            <input type="text" id="name" name="name" required placeholder="请输入您的姓名">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">邮箱 *</label>
+                            <input type="email" id="email" name="email" required placeholder="请输入您的邮箱">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">主题</label>
+                            <select id="subject" name="subject">
+                                <option value="">请选择主题</option>
+                                <option value="course">课程咨询</option>
+                                <option value="school">校方合作</option>
+                                <option value="other">其他</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">消息 *</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="请输入您的消息"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">提交咨询 <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                    
+                    <div class="contact-info" data-aos="fade-left">
+                        <h3>联系方式</h3>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon contact-icon-feishu">
+                                <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <linearGradient id="feishu-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#667EEA"/>
+                                            <stop offset="100%" style="stop-color:#764BA2"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <rect x="4" y="4" width="40" height="40" rx="8" fill="url(#feishu-gradient)"/>
+                                    <rect x="10" y="10" width="10" height="10" rx="2" fill="#FF6B6B"/>
+                                    <rect x="28" y="10" width="10" height="10" rx="2" fill="#4ECDC4"/>
+                                    <rect x="10" y="28" width="10" height="10" rx="2" fill="#45B7D1"/>
+                                    <rect x="28" y="28" width="10" height="10" rx="2" fill="#96CEB4"/>
+                                </svg>
+                            </div>
+                            <div class="contact-detail">
+                                <div class="contact-label">飞书</div>
+                                <div class="contact-value">ou_31d1f97aa62b52b3a3c5bd7d0eeff083</div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon contact-icon-github">
+                                <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <linearGradient id="octopus-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#FF9A9E"/>
+                                            <stop offset="100%" style="stop-color:#FECFEF"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <ellipse cx="24" cy="30" rx="14" ry="10" fill="url(#octopus-gradient)"/>
+                                    <circle cx="24" cy="22" r="9" fill="#FDBF6D"/>
+                                    <circle cx="20" cy="20" r="2" fill="#333"/>
+                                    <circle cx="28" cy="20" r="2" fill="#333"/>
+                                    <path d="M 14 32 Q 10 38 8 42" stroke="#FF6B9D" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                                    <path d="M 19 36 Q 17 40 15 43" stroke="#FF6B9D" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                                    <path d="M 29 36 Q 31 40 33 43" stroke="#FF6B9D" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                                    <path d="M 34 32 Q 38 38 40 42" stroke="#FF6B9D" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                                </svg>
+                            </div>
+                            <div class="contact-detail">
+                                <div class="contact-label">GitHub</div>
+                                <div class="contact-value">Stick-Man99</div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon contact-icon-email">
+                                <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <linearGradient id="email-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#E8EAF6"/>
+                                            <stop offset="100%" style="stop-color:#C5CAE9"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <rect x="6" y="10" width="36" height="28" rx="3" fill="url(#email-gradient)"/>
+                                    <path d="M 6 14 L 24 26 L 42 14" fill="none" stroke="#667EEA" stroke-width="2" stroke-linejoin="round"/>
+                                    <circle cx="24" cy="24" r="9" fill="#667EEA"/>
+                                    <text x="24" y="27.5" text-anchor="middle" fill="white" font-size="11" font-weight="bold" font-family="Arial, sans-serif">@</text>
+                                </svg>
+                            </div>
+                            <div class="contact-detail">
+                                <div class="contact-label">邮箱</div>
+                                <div class="contact-value">example@email.com</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <svg class="footer-stickman" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="14" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                            <circle cx="18" cy="12" r="1" fill="currentColor"/>
+                            <circle cx="22" cy="12" r="1" fill="currentColor"/>
+                            <path d="M 17 16 Q 20 18 23 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <line x1="20" y1="20" x2="20" y2="30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <line x1="20" y1="23" x2="14" y2="27" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <line x1="20" y1="23" x2="26" y2="27" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <line x1="20" y1="30" x2="16" y2="38" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <line x1="20" y1="30" x2="24" y2="38" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span class="logo-text">Stack Man</span>
+                    </div>
+                    <p class="footer-slogan">懂算法的段子手，信息学竞赛助手</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column"><h4>服务</h4><ul><li><a href="services/competition.html">竞赛服务</a></li><li><a href="services/school.html">校方合作</a></li><li><a href="services/research.html">教研成果</a></li></ul></div>
+                    <div class="footer-column"><h4>资源</h4><ul><li><a href="docs.html">文档中心</a></li><li><a href="blog.html">博客文章</a></li></ul></div>
+                    <div class="footer-column"><h4>关于</h4><ul><li><a href="about.html">关于我</a></li><li><a href="contact.html">联系我</a></li></ul></div>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-link" aria-label="飞书"><i class="fas fa-paper-plane"></i></a>
+                    <a href="https://github.com/Stick-Man99" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:example@email.com" class="social-link" aria-label="邮箱"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 Stack Man. Made with <i class="fas fa-heart"></i> and code.</p></div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

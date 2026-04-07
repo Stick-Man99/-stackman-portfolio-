@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Stack Man 竞赛服务 - CSP/NOIP 培训、赛前辅导、集训营">
+
+    <meta name="keywords" content="信息学竞赛，CSP, NOIP, NOI, 竞赛培训">
+
+    <title>竞赛服务 - Stack Man</title>
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='35' r='15' fill='none' stroke='%236366f1' stroke-width='3'/%3E%3Ccircle cx='45' cy='32' r='2' fill='%236366f1'/%3E%3Ccircle cx='55' cy='32' r='2' fill='%236366f1'/%3E%3Cpath d='M 42 40 Q 50 45 58 40' fill='none' stroke='%236366f1' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+
+    
+
+    <!-- Google Fonts - 中文字体 -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    
+
+    <!-- Font Awesome 图标 -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    
+
+    <!-- AOS 动画 -->
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    
+
+    <!-- 主样式文�? -->
+
+    <link rel="stylesheet" href="../css/style.css?v=2026040605">
+    <script>
+
+        (function() {
+
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+
+            document.documentElement.setAttribute('data-theme', savedTheme);
+
+        })();
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="particles" id="particles"></div>
+
+    
+
+    <!-- 导航�? -->
+
+    <header class="navbar" id="navbar">
+
+        <div class="container">
+
+            <div class="nav-content">
+
+                <a href="../index.html" class="logo">
+
+                    <svg class="logo-stickman" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+
+                        <circle cx="20" cy="14" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+
+                        <circle cx="18" cy="12" r="1" fill="currentColor"/>
+
+                        <circle cx="22" cy="12" r="1" fill="currentColor"/>
+
+                        <path d="M 17 16 Q 20 18 23 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+
+                        <line x1="20" y1="20" x2="20" y2="30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+
+                        <line x1="20" y1="23" x2="14" y2="27" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+
+                        <line x1="20" y1="23" x2="26" y2="27" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+
+                        <line x1="20" y1="30" x2="16" y2="38" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+
+                        <line x1="20" y1="30" x2="24" y2="38" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+
+                    </svg>
+
+                    <span class="logo-text">Stack Man</span>
+
+                </a>
+
+                
+
+                <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单">
+
+                    <span class="hamburger"></span>
+
+                </button>
+
+                
+
+                <nav class="nav-menu" id="navMenu">
+
+                    <a href="../index.html" class="nav-link">首页</a>
+
+                    <a href="../about.html" class="nav-link">关于</a>
+
+                    
+
+                    <div class="nav-dropdown">
+
+                        <button class="nav-link dropdown-toggle">
+
+                            服务 <i class="fas fa-chevron-down"></i>
+
+                        </button>
+
+                        <div class="dropdown-menu">
+
+                            <a href="competition.html" class="dropdown-item">竞赛服务</a>
+
+                            <a href="school.html" class="dropdown-item">校方合作</a>
+
+                            <a href="research.html" class="dropdown-item">教研成果</a>
+
+                            <a href="policy.html" class="dropdown-item">政策资讯</a>
+
+                            <a href="cases.html" class="dropdown-item">学员案例</a>
+
+                        </div>
+
+                    </div>
+
+                    
+
+                    <a href="../docs.html" class="nav-link">文档</a>
+
+                    <a href="../blog.html" class="nav-link">博客</a>
+
+                    <a href="../contact.html" class="nav-link">联系</a>
+
+                    
+
+                    <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+
+                        <i class="fas fa-moon"></i>
+
+                        <i class="fas fa-sun"></i>
+
+                    </button>
+
+                </nav>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    
+
+    <main>
+
+        <!-- 页面头部 -->
+
+        <section class="page-header">
+
+            <div class="container">
+
+                <h1 class="page-title" data-aos="fade-up">竞赛服务</h1>
+
+                <p class="page-subtitle" data-aos="fade-up" data-aos-delay="100">专业的信息学竞赛培训，助力学子斩获佳�?</p>
+
+            </div>
+
+        </section>
+
+        
+
+        <!-- 服务详情 -->
+
+        <section class="service-detail-section">
+
+            <div class="container">
+
+                <div class="service-detail-content">
+
+                    <div class="service-detail-card" data-aos="fade-up">
+
+                        <h2><i class="fas fa-trophy"></i> CSP 认证辅导</h2>
+
+                        <p>针对 CSP-J/S 认证的系统化培训，涵盖入门级和提高级全部考点�?</p>
+
+                        <ul>
+
+                            <li>基础知识系统梳理</li>
+
+                            <li>历年真题精讲</li>
+
+                            <li>模拟测试与点�?</li>
+
+                        </ul>
+
+                    </div>
+
+                    
+
+                    <div class="service-detail-card" data-aos="fade-up" data-aos-delay="100">
+
+                        <h2><i class="fas fa-medal"></i> NOIP 冲刺�?</h2>
+
+                        <p>面向 NOIP 选手的强化训练，提升算法能力和解题技巧�?</p>
+
+                        <ul>
+
+                            <li>高频考点深度讲解</li>
+
+                            <li>难题突破策略</li>
+
+                            <li>比赛心态调�?</li>
+
+                        </ul>
+
+                    </div>
+
+                    
+
+                    <div class="service-detail-card" data-aos="fade-up" data-aos-delay="200">
+
+                        <h2><i class="fas fa-star"></i> 省�?/国赛集训</h2>
+
+                        <p>为省选和国赛选手提供高强度集训，冲击最高荣誉�?</p>
+
+                        <ul>
+
+                            <li>专题强化训练</li>
+
+                            <li>一对一针对性辅�?</li>
+
+                            <li>模拟赛实战演�?</li>
+
+                        </ul>
+
+                    </div>
+
+                    
+
+                    <div class="service-detail-card" data-aos="fade-up" data-aos-delay="300">
+
+<h2><i class="fas fa-people-group"></i> 寒暑假集训营</h2>
+
+                        <p>集中时间进行系统性学习，快速提升竞赛水平�?</p>
+
+                        <ul>
+
+                            <li>封闭式集中训�?</li>
+
+                            <li>名师面对面指�?</li>
+
+                            <li>同伴互助学习</li>
+
+                        </ul>
+
+                    </div>
+
+                    
+
+                    <div class="service-detail-card" data-aos="fade-up" data-aos-delay="400">
+
+                        <h2><i class="fas fa-laptop-code"></i> 日常训练计划</h2>
+
+                        <p>制定科学的日常训练计划，保持稳定的学习节奏�?</p>
+
+                        <ul>
+
+                            <li>个性化训练方案</li>
+
+                            <li>定期进度跟踪</li>
+
+                            <li>在线答疑支持</li>
+
+                        </ul>
+
+                    </div>
+
+                    
+
+                    <div class="service-detail-card" data-aos="fade-up" data-aos-delay="500">
+
+                        <h2><i class="fas fa-chart-line"></i> 能力评估测试</h2>
+
+                        <p>定期进行能力评估，了解学习进度和薄弱环节�?</p>
+
+                        <ul>
+
+                            <li>标准化测试体�?</li>
+
+                            <li>详细分析报告</li>
+
+                            <li>针对性提升建�?</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        
+
+        <!-- CTA 区域 -->
+
+        <section class="cta-section">
+
+            <div class="container">
+
+                <h2 data-aos="fade-up">准备好开始竞赛之旅了吗？</h2>
+
+                <p data-aos="fade-up" data-aos-delay="100">立即咨询，获取专属学习方�?</p>
+
+                <div class="cta-buttons" data-aos="fade-up" data-aos-delay="200">
+
+                    <a href="../contact.html" class="btn btn-primary">联系�?</a>
+
+                    <a href="../index.html" class="btn btn-secondary">返回首页</a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    
+
+    <!-- 页脚 -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div class="footer-brand">
+
+                    <div class="footer-logo">
+
+                        <svg class="footer-stickman" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+
+                            <circle cx="20" cy="14" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+
+                            <circle cx="18" cy="12" r="1" fill="currentColor"/>
+
+                            <circle cx="22" cy="12" r="1" fill="currentColor"/>
+
+                            <path d="M 17 16 Q 20 18 23 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+
+                            <line x1="20" y1="20" x2="20" y2="30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+
+                            <line x1="20" y1="23" x2="14" y2="27" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+
+                            <line x1="20" y1="23" x2="26" y2="27" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+
+                            <line x1="20" y1="30" x2="16" y2="38" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+
+                            <line x1="20" y1="30" x2="24" y2="38" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+
+                        </svg>
+
+                        <span class="logo-text">Stack Man</span>
+
+                    </div>
+
+                    <p class="footer-slogan">懂算法的段子手，信息学竞赛助�?</p>
+
+                </div>
+
+                
+
+                <div class="footer-links">
+
+                    <div class="footer-column">
+
+                        <h4>服务</h4>
+
+                        <ul>
+
+                            <li><a href="competition.html">竞赛服务</a></li>
+
+                            <li><a href="school.html">校方合作</a></li>
+
+                            <li><a href="research.html">教研成果</a></li>
+
+                        </ul>
+
+                    </div>
+
+                    
+
+                    <div class="footer-column">
+
+                        <h4>资源</h4>
+
+                        <ul>
+
+                            <li><a href="../docs.html">文档中心</a></li>
+
+                            <li><a href="../blog.html">博客文章</a></li>
+
+                        </ul>
+
+                    </div>
+
+                    
+
+                    <div class="footer-column">
+
+                        <h4>关于</h4>
+
+                        <ul>
+
+                            <li><a href="../about.html">关于�?</a></li>
+
+                            <li><a href="../contact.html">联系�?</a></li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                
+
+                <div class="footer-social">
+
+                    <a href="#" class="social-link" aria-label="飞书">
+
+                        <i class="fas fa-paper-plane"></i>
+
+                    </a>
+
+                    <a href="https://github.com/Stick-Man99" class="social-link" aria-label="GitHub">
+
+                        <i class="fab fa-github"></i>
+
+                    </a>
+
+                    <a href="mailto:example@email.com" class="social-link" aria-label="邮箱">
+
+                        <i class="fas fa-envelope"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            
+
+            <div class="footer-bottom">
+
+                <p>&copy; 2026 Stack Man. Made with <i class="fas fa-heart"></i> and code.</p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="../js/main.js"></script>
+
+</body>
+
+</html>
+
