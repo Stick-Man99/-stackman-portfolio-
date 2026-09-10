@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="从小学到高中，如何规划信息学竞赛学习路线？了解不同阶段的学习重点、训练节奏与入学测评思路。">
+    <meta name="keywords" content="信息学竞赛学习路线, GESP, CSP-J, CSP-S, NOIP, NOI">
+    <title>小学到高中：信息学竞赛完整学习路线图 - Stack Man</title>
+    <link rel="stylesheet" href="../css/style.css?v=20260910">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    <header class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="../index.html" class="logo">
+                    <svg class="logo-stickman" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="20" cy="14" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <circle cx="18" cy="12" r="1" fill="currentColor"/>
+                        <circle cx="22" cy="12" r="1" fill="currentColor"/>
+                        <path d="M 17 16 Q 20 18 23 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="20" y1="20" x2="20" y2="30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="20" y1="23" x2="14" y2="27" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="20" y1="23" x2="26" y2="27" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="20" y1="30" x2="16" y2="38" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="20" y1="30" x2="24" y2="38" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <span class="logo-text">Stack Man</span>
+                </a>
+                <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单"><span class="hamburger"></span></button>
+                <nav class="nav-menu" id="navMenu">
+                    <a href="../index.html" class="nav-link">首页</a>
+                    <a href="../about.html" class="nav-link">关于</a>
+                    <div class="nav-dropdown">
+                        <button class="nav-link dropdown-toggle">服务 <i class="fas fa-chevron-down"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="../services/competition.html" class="dropdown-item">竞赛培训</a>
+                            <a href="../services/school.html" class="dropdown-item">校方合作</a>
+                            <a href="../services/research.html" class="dropdown-item">教研成果</a>
+                            <a href="../services/policy.html" class="dropdown-item">政策资讯</a>
+                            <a href="../services/cases.html" class="dropdown-item">成长路径</a>
+                        </div>
+                    </div>
+                    <a href="../docs.html" class="nav-link">文档</a>
+                    <a href="../blog.html" class="nav-link active">博客</a>
+                    <a href="../contact.html" class="nav-link">联系</a>
+                    <button class="theme-toggle" id="themeToggle" aria-label="切换主题"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">小学到高中：信息学竞赛完整学习路线图</h1>
+                <p class="page-subtitle">先看阶段目标，再决定训练节奏</p>
+            </div>
+        </section>
+
+        <section class="article-section">
+            <div class="container">
+                <article class="article-shell">
+                    <p>信息学竞赛不是一场短跑。很多家长最关心的问题是：孩子应该从几年级开始？要不要直接学 C++？多久可以参加比赛？</p>
+                    <p>更稳妥的做法，是先根据年龄、基础和目标确定阶段，再安排课程和训练。下面是一条适合大多数家庭理解的培养路线，具体节奏仍应以测评结果为准。</p>
+
+                    <h2>一、不同阶段关注什么？</h2>
+                    <table class="roadmap-table">
+                        <thead><tr><th>阶段</th><th>主要目标</th><th>学习重点</th></tr></thead>
+                        <tbody>
+                            <tr><td>小学 1—3 年级</td><td>兴趣与思维启蒙</td><td>逻辑表达、问题拆解、简单编程体验</td></tr>
+                            <tr><td>小学 4—6 年级</td><td>建立编程基础</td><td>C++ 基础、模拟、枚举、基础数据结构</td></tr>
+                            <tr><td>初中阶段</td><td>进入系统竞赛训练</td><td>专题算法、真题复盘、模拟赛与稳定得分</td></tr>
+                            <tr><td>高中阶段</td><td>提升算法深度</td><td>综合题、长期规划、比赛策略与专题突破</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h2>二、什么时候适合参加测评？</h2>
+                    <p>当孩子已经接触过一些编程内容，或者家长无法判断应该从哪里开始时，就可以进行入学能力评估。测评不只是看会不会写代码，还会综合了解年龄、基础、理解方式、学习目标和可投入时间。</p>
+                    <ul>
+                        <li>基础较少：先安排入门内容，建立兴趣和学习习惯。</li>
+                        <li>已经学过编程：重点检查知识结构是否完整，以及是否存在训练断层。</li>
+                        <li>已有比赛目标：根据目标赛事倒推专题训练和复盘节奏。</li>
+                    </ul>
+
+                    <h2>三、为什么不建议只追求刷题数量？</h2>
+                    <p>刷题是训练的一部分，但不是全部。更重要的是能否说清楚解题思路、发现错误原因、把一道题中学到的方法迁移到新问题中。稳定的训练通常包括：知识学习、独立思考、代码实现、结果复盘和阶段测评。</p>
+
+                    <h2>四、给家长的三个建议</h2>
+                    <ul>
+                        <li>先看兴趣和持续性，再决定课程强度。</li>
+                        <li>给孩子留出独立思考和试错的时间，不只关注一次考试的结果。</li>
+                        <li>每隔一段时间复盘学习目标，及时调整课程和训练安排。</li>
+                    </ul>
+
+                    <h2>结语</h2>
+                    <p>适合孩子的路线，应该是清晰但不僵化的。Stack Man 提供入学测评、小班线上课、一对一辅导和校方合作服务，欢迎联系沟通孩子的年级、基础与目标。</p>
+                    <a href="../contact.html" class="btn btn-primary">咨询入学测评</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container"><div class="footer-bottom"><p>&copy; 2026 Stack Man. Made with <i class="fas fa-heart"></i> and code.</p></div></div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
