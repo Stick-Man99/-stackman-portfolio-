@@ -305,6 +305,7 @@ const sourceLabels = {
     competition: '竞赛培训页',
     roadmap: '学习路线文章',
     school: '校方合作页',
+    cases: '成长路径页',
     about: '关于页面',
     blog: '博客页面'
 };
@@ -416,10 +417,11 @@ if (!isContactPage && !isPrivacyPage && !document.querySelector('.mobile-consult
     const contactPath = inSubdirectory ? '../contact.html' : 'contact.html';
     const source = currentPath.includes('/services/competition') ? 'competition' :
         currentPath.includes('/services/school') ? 'school' :
+        currentPath.includes('/services/cases') ? 'cases' :
         currentPath.includes('/blog/learning-roadmap') ? 'roadmap' :
         currentPath.includes('/about') ? 'about' :
         currentPath.includes('/blog') ? 'blog' : 'home';
-    const subject = source === 'school' ? 'school' : source === 'competition' || source === 'roadmap' ? 'assessment' : 'course';
+    const subject = source === 'school' ? 'school' : source === 'competition' || source === 'roadmap' || source === 'cases' ? 'assessment' : 'course';
     const cta = document.createElement('a');
     cta.className = 'mobile-consultation-cta';
     cta.href = `${contactPath}?from=${source}&subject=${subject}`;
