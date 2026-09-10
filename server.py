@@ -8,6 +8,7 @@ import http.server
 import socketserver
 import os
 import mimetypes
+from urllib.parse import urlsplit
 
 PORT = 8081
 
@@ -32,6 +33,7 @@ class UTF8Handler(http.server.SimpleHTTPRequestHandler):
     
     def guess_type(self, path):
         """Override to ensure UTF-8 charset for text files"""
+        path = urlsplit(path).path
         base_type = super().guess_type(path)
         if base_type.startswith('text/'):
             return base_type + '; charset=utf-8'
@@ -42,8 +44,6 @@ class UTF8Handler(http.server.SimpleHTTPRequestHandler):
         return base_type
     
     def end_headers(self):
-        # Always add UTF-8 charset for text files
-        self.send_header('Content-Type', self.guess_type(self.path))
         self.send_header('Access-Control-Allow-Origin', '*')
         self.send_header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
         self.send_header('Pragma', 'no-cache')

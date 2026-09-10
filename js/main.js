@@ -297,13 +297,23 @@ if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        // Get form data
         const formData = new FormData(contactForm);
         const data = Object.fromEntries(formData);
-        
-        // Add actual submission logic here
-        alert('Thank you for your inquiry! We will reply to you soon.');
-        contactForm.reset();
+
+        const subjectLabels = {
+            course: '课程咨询',
+            school: '校方合作',
+            other: '其他咨询'
+        };
+        const subject = subjectLabels[data.subject] || '网站咨询';
+        const body = [
+            `姓名：${data.name || ''}`,
+            `联系邮箱：${data.email || ''}`,
+            '',
+            data.message || ''
+        ].join('\n');
+
+        window.location.href = `mailto:1825253292@qq.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
 }
 

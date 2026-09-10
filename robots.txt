@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://stick-man99.github.io/-stackman-portfolio-/sitemap.xml
