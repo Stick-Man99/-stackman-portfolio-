@@ -75,9 +75,19 @@
             </div>
         </section>
         
-        <section class="blog-section">
-            <div class="container">
-                <div class="blog-grid">
+        <section class="blog-section">
+            <div class="container">
+                <div class="section-header student-work-header">
+                    <div><span class="eyebrow">共同学习</span><h2>学生作品</h2><p>经过审核的学习笔记、算法题解和竞赛总结。</p></div>
+                    <a href="submit.html" class="btn btn-secondary">我要投稿</a>
+                </div>
+                <p class="student-articles-status" id="student-articles-status" role="status" aria-live="polite">正在加载学生作品……</p>
+                <div class="blog-grid student-articles-grid" id="student-articles-grid"></div>
+
+                <div class="section-header curated-blog-header">
+                    <div><span class="eyebrow">教练整理</span><h2>精选文章</h2><p>学习路线、竞赛指南与实用资料。</p></div>
+                </div>
+                <div class="blog-grid">
                     <article class="blog-card" data-aos="fade-up">
                         <div class="blog-card-image"><div class="blog-placeholder"></div></div>
                         <div class="blog-card-content">
@@ -272,6 +282,8 @@
     
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/main.js"></script>
-</body>
-</html>
+    <script>window.STACKMAN_SUBMISSION_API = '/api';</script>
+    <script src="js/main.js"></script>
+    <script src="js/blog-submissions.js"></script>
+</body>
+</html>

@@ -38,7 +38,7 @@
                 '<div class="review-card-header"><div><span class="blog-category">' + escapeHtml(categoryNames[item.category] || item.category) + '</span><h2>' + escapeHtml(item.title) + '</h2><p>作者：' + escapeHtml(item.author || item.author_nickname) + ' · ' + escapeHtml(item.grade || item.grade_range || '未填写') + '</p></div><span class="review-status">' + statusLabel(currentStatus) + '</span></div>' +
                 '<details><summary>查看 Markdown 内容</summary><pre class="review-content">' + escapeHtml(item.content) + '</pre></details>' +
                 '<div class="review-actions">' +
-                (currentStatus === 'pending' ? '<button class="btn btn-primary" data-action="approve">通过投稿</button><button class="btn btn-secondary" data-action="reject">退回修改</button>' : '') +
+                (currentStatus === 'pending' ? '<button class="btn btn-primary" data-action="approve">通过并发布</button><button class="btn btn-secondary" data-action="reject">退回修改</button>' : '') +
                 (!online ? '<button class="btn btn-secondary" data-action="remove">删除本机记录</button>' : '') +
                 '</div></article>';
         }).join('');

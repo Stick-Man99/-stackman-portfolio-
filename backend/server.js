@@ -65,6 +65,20 @@ function isAdmin(request) {
   return Boolean(ADMIN_TOKEN) && request.headers.authorization === `Bearer ${ADMIN_TOKEN}`;
 }
 
+function toPublicArticle(item) {
+  return {
+    id: item.id,
+    title: item.title,
+    author: item.author,
+    grade: item.grade,
+    category: item.category,
+    luogu_url: item.luogu_url,
+    content: item.content,
+    created_at: item.created_at,
+    updated_at: item.updated_at,
+  };
+}
+
 function readBody(request) {
   return new Promise((resolve, reject) => {
     let body = '';
@@ -92,6 +106,22 @@ async function handle(request, response) {
   }
   if (url.pathname === '/health' && request.method === 'GET') {
     sendJson(response, 200, { ok: true }, origin);
+    return;
+  }
+  if (url.pathname === '/articles' && request.method === 'GET') {
+    const items = await readStore();
+    const articles = items
+      .filter((item) => item.status === 'approved' && item.visibility === 'public')
+      .map(toPublicArticle);
+    sendJson(response, 200, { items: articles }, origin);
+    return;
+  }
+  const articleMatch = url.pathname.match(/^\/articles\/([^/]+)$/);
+  if (articleMatch && request.method === 'GET') {
+    const items = await readStore();
+    const item = items.find((entry) => entry.id === articleMatch[1] && entry.status === 'approved' && entry.visibility === 'public');
+    if (!item) return sendJson(response, 404, { error: 'not_found' }, origin);
+    sendJson(response, 200, { item: toPublicArticle(item) }, origin);
     return;
   }
   if (url.pathname === '/submissions' && request.method === 'POST') {
