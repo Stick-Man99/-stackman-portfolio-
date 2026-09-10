@@ -293,28 +293,139 @@ if (carouselTrack && carouselPrev && carouselNext) {
 // ===================================
 const contactForm = document.getElementById('contact-form');
 
+const subjectLabels = {
+    course: '课程咨询',
+    assessment: '入学测评',
+    school: '校方合作',
+    other: '其他咨询'
+};
+
+const sourceLabels = {
+    home: '首页',
+    competition: '竞赛培训页',
+    roadmap: '学习路线文章',
+    school: '校方合作页',
+    about: '关于页面',
+    blog: '博客页面'
+};
+
+function setFormStatus(form, message, type = '') {
+    let status = form.querySelector('.form-status');
+    if (!status) {
+        status = document.createElement('p');
+        status.className = 'form-status';
+        status.setAttribute('role', 'status');
+        status.setAttribute('aria-live', 'polite');
+        form.appendChild(status);
+    }
+    status.className = `form-status ${type}`.trim();
+    status.textContent = message;
+}
+
+function copyText(text, button) {
+    const showCopied = () => {
+        const original = button.textContent;
+        button.textContent = '已复制';
+        button.classList.add('copied');
+        setTimeout(() => {
+            button.textContent = original;
+            button.classList.remove('copied');
+        }, 1800);
+    };
+
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(showCopied).catch(() => fallbackCopy());
+        return;
+    }
+
+    fallbackCopy();
+
+    function fallbackCopy() {
+        const input = document.createElement('textarea');
+        input.value = text;
+        input.style.position = 'fixed';
+        input.style.opacity = '0';
+        document.body.appendChild(input);
+        input.focus();
+        input.select();
+        try {
+            document.execCommand('copy');
+            showCopied();
+        } catch (error) {
+            button.textContent = text;
+        }
+        input.remove();
+    }
+}
+
+document.querySelectorAll('.copy-button[data-copy-text]').forEach(button => {
+    button.addEventListener('click', () => copyText(button.dataset.copyText, button));
+});
+
 if (contactForm) {
+    const params = new URLSearchParams(window.location.search);
+    const subjectSelect = contactForm.querySelector('[name="subject"]');
+    const context = document.getElementById('consultation-context');
+    const requestedSubject = params.get('subject');
+    const source = params.get('from');
+
+    const hasRequestedSubject = subjectSelect && Array.from(subjectSelect.options).some(option => option.value === requestedSubject);
+    if (hasRequestedSubject) {
+        subjectSelect.value = requestedSubject;
+    }
+
+    if (context && (requestedSubject || source)) {
+        const subjectText = subjectLabels[requestedSubject] || '网站咨询';
+        const sourceText = sourceLabels[source] ? `来自${sourceLabels[source]}` : '';
+        context.textContent = `${sourceText}${sourceText ? '，' : ''}本次将围绕“${subjectText}”沟通。请补充孩子的年级和目前基础。`;
+    }
+
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
         const formData = new FormData(contactForm);
         const data = Object.fromEntries(formData);
-
-        const subjectLabels = {
-            course: '课程咨询',
-            school: '校方合作',
-            other: '其他咨询'
-        };
         const subject = subjectLabels[data.subject] || '网站咨询';
         const body = [
             `姓名：${data.name || ''}`,
             `联系邮箱：${data.email || ''}`,
+            `咨询主题：${subject}`,
+            `学生年级：${data.student_grade || '未填写'}`,
+            `目前基础：${data.learning_level || '未填写'}`,
+            `期望形式：${data.learning_format || '未填写'}`,
+            `来源页面：${sourceLabels[data.source] || sourceLabels[params.get('from')] || '直接访问'}`,
             '',
             data.message || ''
         ].join('\n');
 
-        window.location.href = `mailto:1825253292@qq.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        const mailto = `mailto:1825253292@qq.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        setFormStatus(contactForm, '正在打开邮件客户端；如果没有反应，请稍后直接复制微信号 jjhcr123 联系。', 'success');
+        window.location.href = mailto;
     });
+}
+
+// ===================================
+// Contextual Consultation CTA
+// ===================================
+const currentPath = window.location.pathname;
+const isContactPage = currentPath.endsWith('/contact.html') || currentPath.endsWith('/contact.html/');
+const isPrivacyPage = currentPath.endsWith('/privacy.html') || currentPath.endsWith('/privacy.html/');
+
+if (!isContactPage && !isPrivacyPage && !document.querySelector('.mobile-consultation-cta')) {
+    const inSubdirectory = currentPath.includes('/services/') || currentPath.includes('/blog/');
+    const contactPath = inSubdirectory ? '../contact.html' : 'contact.html';
+    const source = currentPath.includes('/services/competition') ? 'competition' :
+        currentPath.includes('/services/school') ? 'school' :
+        currentPath.includes('/blog/learning-roadmap') ? 'roadmap' :
+        currentPath.includes('/about') ? 'about' :
+        currentPath.includes('/blog') ? 'blog' : 'home';
+    const subject = source === 'school' ? 'school' : source === 'competition' || source === 'roadmap' ? 'assessment' : 'course';
+    const cta = document.createElement('a');
+    cta.className = 'mobile-consultation-cta';
+    cta.href = `${contactPath}?from=${source}&subject=${subject}`;
+    cta.innerHTML = '<i class="fas fa-comments"></i><span>咨询测评</span>';
+    cta.setAttribute('aria-label', '前往咨询测评');
+    document.body.appendChild(cta);
 }
 
 // ===================================

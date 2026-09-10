@@ -74,7 +74,7 @@
         <section class="page-header">
             <div class="container">
                 <h1 class="page-title" data-aos="fade-up">联系我</h1>
-                <p class="page-subtitle" data-aos="fade-up" data-aos-delay="100">课程咨询、入学测评与校方合作，欢迎联系</p>
+                <p class="page-subtitle" data-aos="fade-up" data-aos-delay="100">先告诉我孩子的年级、基础和目标，再一起确定合适的学习路径</p>
             </div>
         </section>
         
@@ -82,6 +82,9 @@
             <div class="container">
                 <div class="contact-grid">
                     <form class="contact-form" id="contact-form" data-aos="fade-right">
+                        <div class="consultation-context" id="consultation-context" role="status" aria-live="polite">
+                            填写几项基本信息，我会据此回复课程或测评建议。
+                        </div>
                         <div class="form-group">
                             <label for="name">姓名 *</label>
                             <input type="text" id="name" name="name" required placeholder="请输入您的姓名">
@@ -95,15 +98,50 @@
                             <select id="subject" name="subject">
                                 <option value="">请选择主题</option>
                                 <option value="course">课程咨询</option>
+                                <option value="assessment">入学测评</option>
                                 <option value="school">校方合作</option>
                                 <option value="other">其他</option>
                             </select>
                         </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="student-grade">学生年级</label>
+                                <select id="student-grade" name="student_grade">
+                                    <option value="">请选择</option>
+                                    <option value="小学1-3年级">小学 1—3 年级</option>
+                                    <option value="小学4-6年级">小学 4—6 年级</option>
+                                    <option value="初中">初中</option>
+                                    <option value="高中">高中</option>
+                                    <option value="其他">其他</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="learning-level">目前基础</label>
+                                <select id="learning-level" name="learning_level">
+                                    <option value="">请选择</option>
+                                    <option value="零基础">零基础</option>
+                                    <option value="接触过图形化编程">接触过图形化编程</option>
+                                    <option value="学过C++">学过 C++</option>
+                                    <option value="参加过竞赛">参加过竞赛</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="learning-format">期望形式</label>
+                            <select id="learning-format" name="learning_format">
+                                <option value="">暂不确定</option>
+                                <option value="线上小班">线上小班</option>
+                                <option value="一对一">一对一</option>
+                                <option value="先了解建议">先了解建议</option>
+                            </select>
+                        </div>
                         <div class="form-group">
                             <label for="message">消息 *</label>
-                            <textarea id="message" name="message" rows="5" required placeholder="请输入您的消息"></textarea>
+                            <textarea id="message" name="message" rows="5" required placeholder="例如：孩子几年级、学过什么、想参加哪类竞赛"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary btn-full">提交咨询 <i class="fas fa-paper-plane"></i></button>
+                        <p class="form-note">提交后会生成一封邮件。如果邮箱未自动打开，也可以直接复制微信号联系。</p>
+                        <p class="form-privacy">提交即表示你了解并同意查看<a href="privacy.html">隐私说明</a>。</p>
                     </form>
                     
                     <div class="contact-info" data-aos="fade-left">
@@ -127,7 +165,7 @@
                             </div>
                             <div class="contact-detail">
                                 <div class="contact-label">微信（首选）</div>
-                                <div class="contact-value">jjhcr123</div>
+                                <div class="contact-value contact-value-action"><span>jjhcr123</span><button type="button" class="copy-button" data-copy-text="jjhcr123" aria-label="复制微信号">复制</button></div>
                             </div>
                         </div>
                         
@@ -175,6 +213,15 @@
                                 <div class="contact-label">邮箱</div>
                                 <div class="contact-value">1825253292@qq.com</div>
                             </div>
+                        </div>
+
+                        <div class="consultation-steps">
+                            <h3>咨询流程</h3>
+                            <ol>
+                                <li><span>1</span><div><strong>提交基本情况</strong><small>年级、基础和学习目标</small></div></li>
+                                <li><span>2</span><div><strong>沟通并安排测评</strong><small>了解适合的起点和节奏</small></div></li>
+                                <li><span>3</span><div><strong>获得学习建议</strong><small>再确认课程形式和安排</small></div></li>
+                            </ol>
                         </div>
                         
                     </div>
