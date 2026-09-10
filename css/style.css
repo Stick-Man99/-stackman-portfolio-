@@ -2653,6 +2653,20 @@ a:hover {
     border-radius: var(--radius-md);
 }
 
+.review-connection {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 0 18px;
+    align-items: end;
+    margin-bottom: 28px;
+    padding: 24px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+}
+.review-connection .form-group { margin-bottom: 0; }
+.review-connection .submission-status { grid-column: 1 / -1; margin-bottom: 0; }
+
 .review-list { display: grid; gap: 20px; }
 
 .review-card {
@@ -2706,4 +2720,7 @@ a:hover {
     .submission-wide { grid-column: auto; }
     .review-card-header { display: block; }
     .review-status { display: inline-block; margin-top: 12px; }
+    .review-connection { grid-template-columns: 1fr; gap: 0; }
+    .review-connection .form-group { margin-bottom: 18px; }
+    .review-connection .submission-status { grid-column: auto; }
 }

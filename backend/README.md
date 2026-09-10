@@ -10,6 +10,8 @@
 4. 在 Worker Secrets 中设置 `ADMIN_TOKEN`，不要把令牌写进网页或 GitHub。
 5. 在前端发布配置中设置 `window.STACKMAN_SUBMISSION_API` 为 Worker 地址。
 
+打开网站的 `review.html`，填入 Worker 地址和管理员令牌即可读取审核队列。令牌只在当前页面内存中使用，不会写入 `localStorage`。
+
 ## 当前边界
 
 - 学生投稿接口只写入 `pending`，不会直接公开。

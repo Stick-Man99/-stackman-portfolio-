@@ -3,15 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>投稿审核演示 - Stack Man</title>
+    <title>投稿审核 - Stack Man</title>
     <link rel="stylesheet" href="css/style.css?v=20260910">
     <script>(function(){document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');})();</script>
 </head>
 <body>
     <header class="navbar"><div class="container"><div class="nav-content"><a href="index.html" class="logo"><span class="logo-text">Stack Man</span></a><nav class="nav-menu"><a href="blog.html" class="nav-link">博客</a><a href="submit.html" class="nav-link">学生投稿</a></nav></div></div></header>
     <main>
-        <section class="page-header"><div class="container"><h1 class="page-title">投稿审核</h1><p class="page-subtitle">本地演示队列：正式上线后，这里会由安全的后台接口提供数据</p></div></section>
-        <section class="review-section"><div class="container"><div class="review-warning">这是本机演示审核页，不是正式后台。当前浏览器提交的内容只保存在本机，其他设备看不到。</div><div id="review-list" class="review-list"></div></div></section>
+        <section class="page-header"><div class="container"><h1 class="page-title">投稿审核</h1><p class="page-subtitle">本地演示或线上共享后台</p></div></section>
+        <section class="review-section"><div class="container">
+            <div class="review-warning"><strong>安全提示：</strong>管理员令牌只在当前页面内存中使用，不会保存到浏览器。不要把令牌写进网页、截图或提交到 GitHub。</div>
+            <form class="review-connection" id="review-connection">
+                <div class="form-group"><label for="review-api-url">后台地址（可选）</label><input id="review-api-url" type="url" placeholder="留空则查看本机演示队列"></div>
+                <div class="form-group"><label for="review-admin-token">管理员令牌（线上审核时填写）</label><input id="review-admin-token" type="password" autocomplete="off" placeholder="不会保存"></div>
+                <button class="btn btn-primary" type="submit">连接并刷新</button>
+                <p class="submission-status" id="review-status" role="status" aria-live="polite"></p>
+            </form>
+            <div id="review-list" class="review-list"></div>
+        </div></section>
     </main>
     <script src="js/main.js"></script><script src="js/review.js"></script>
 </body>

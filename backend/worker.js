@@ -1,7 +1,11 @@
-const ALLOWED_ORIGIN = 'https://stick-man99.github.io';
+const ALLOWED_ORIGINS = new Set([
+  'https://stick-man99.github.io',
+  'http://127.0.0.1:8082',
+  'http://localhost:8082',
+]);
 
 function corsHeaders(origin) {
-  const allowed = origin === ALLOWED_ORIGIN ? origin : ALLOWED_ORIGIN;
+  const allowed = ALLOWED_ORIGINS.has(origin) ? origin : 'https://stick-man99.github.io';
   return {
     'Access-Control-Allow-Origin': allowed,
     'Access-Control-Allow-Headers': 'Content-Type, Authorization',
