@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="学生投稿前可以参考的 Markdown 常用语法示例。">
+    <title>学生投稿 Markdown 写作示例 - Stack Man</title>
+    <link rel="stylesheet" href="../css/style.css?v=20260910">
+    <script>(function(){document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');})();</script>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    <header class="navbar" id="navbar"><div class="container"><div class="nav-content">
+        <a href="../index.html" class="logo"><span class="logo-text">Stack Man</span></a>
+        <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单"><span class="hamburger"></span></button>
+        <nav class="nav-menu" id="navMenu"><a href="../index.html" class="nav-link">首页</a><a href="../docs.html" class="nav-link">文档</a><a href="../blog.html" class="nav-link active">博客</a><a href="../submit.html" class="nav-link">学生投稿</a><button class="theme-toggle" id="themeToggle" aria-label="切换主题"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></button></nav>
+    </div></div></header>
+    <main>
+        <section class="page-header"><div class="container"><h1 class="page-title">学生投稿 Markdown 写作示例</h1><p class="page-subtitle">掌握几个常用语法，就能把题解写得清楚又好看</p></div></section>
+        <section class="article-section"><div class="container"><article class="article-shell">
+            <div class="blog-meta"><span class="blog-category">投稿指南</span><span class="blog-date">2026-09-10</span></div>
+            <p>Markdown 是一种简单的文章排版方式。你不需要学习复杂的网页代码，只要在投稿框里输入几个符号，就可以生成清晰的标题、列表、链接和代码。</p>
+            <h2>1. 标题</h2><p>在文字前面加井号。井号越少，标题层级越高：</p>
+            <pre><code># 一级标题
+## 二级标题
+### 三级标题</code></pre>
+            <h2>2. 列表</h2><p>每一行用短横线开头，就可以写出列表：</p>
+            <pre><code>- 先读题，明确输入和输出
+- 再分析样例和边界情况
+- 最后写代码并测试</code></pre>
+            <ul><li>先读题，明确输入和输出</li><li>再分析样例和边界情况</li><li>最后写代码并测试</li></ul>
+            <h2>3. 链接</h2><p>链接格式是：<code>[链接文字](网页地址)</code>。例如：<a href="https://www.luogu.com.cn/" target="_blank" rel="noopener noreferrer">打开洛谷</a>。</p>
+            <h2>4. 代码块</h2><p>在代码前后各写一行三个反引号，并可以标注语言名称：</p>
+            <pre><code>```cpp
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main() {
+    cout &lt;&lt; "Hello, algorithm!";
+    return 0;
+}
+```</code></pre>
+            <h2>5. 一篇完整题解可以这样组织</h2><ol><li><strong>题目思路：</strong>你是怎么想到这个方法的？</li><li><strong>算法步骤：</strong>把解题过程分成几步。</li><li><strong>复杂度分析：</strong>说明时间复杂度和空间复杂度。</li><li><strong>代码与复盘：</strong>贴出代码，并写下容易出错的地方。</li></ol>
+            <blockquote>写题解不是为了展示自己一次就做对，而是把思考过程留下来，帮助未来的自己和其他同学。</blockquote>
+            <div class="article-cta"><a class="btn btn-primary" href="../submit.html">开始投稿</a><a class="btn btn-secondary" href="../blog.html">返回博客</a></div>
+        </article></div></section>
+    </main>
+    <footer class="footer"><div class="container"><div class="footer-bottom"><p>&copy; 2026 Stack Man.</p></div></div></footer>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script><script src="../js/main.js"></script>
+</body>
+</html>

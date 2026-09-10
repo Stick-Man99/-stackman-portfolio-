@@ -2676,6 +2676,29 @@ a:hover {
 .review-content { white-space: pre-wrap; max-height: 360px; }
 .empty-state { text-align: center; padding: 64px 24px; background: var(--bg-secondary); border-radius: var(--radius-lg); }
 
+.markdown-guide-section { padding: 0 0 96px; }
+.markdown-guide-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 28px 32px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, .14), rgba(139, 92, 246, .08));
+    border: 1px solid rgba(129, 140, 248, .35);
+    border-radius: var(--radius-lg);
+}
+.markdown-guide-card h2 { margin: 8px 0; }
+.markdown-guide-card p { margin: 0; color: var(--text-secondary); }
+.article-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+.article-shell blockquote { margin: 24px 0; padding: 16px 20px; color: var(--text-secondary); border-left: 3px solid var(--primary-500); background: rgba(99, 102, 241, .08); }
+.article-shell pre { overflow: auto; padding: 16px; background: rgba(0, 0, 0, .2); border-radius: var(--radius-md); }
+.article-shell pre code { color: var(--text-secondary); font-family: ui-monospace, SFMono-Regular, Consolas, monospace; line-height: 1.7; }
+
+@media (max-width: 768px) {
+    .markdown-guide-card { display: block; padding: 24px; }
+    .markdown-guide-card .btn { display: inline-flex; margin-top: 20px; }
+}
+
 @media (max-width: 768px) {
     .submission-form { padding: 20px; }
     .submission-fields,
