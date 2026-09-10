@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stack Man 网站隐私说明，了解咨询信息的收集和使用方式。">
+    <title>隐私说明 - Stack Man</title>
+    <link rel="stylesheet" href="css/style.css?v=20260910">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    <header class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <svg class="logo-stickman" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <circle cx="20" cy="14" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <circle cx="18" cy="12" r="1" fill="currentColor"/><circle cx="22" cy="12" r="1" fill="currentColor"/>
+                        <path d="M 17 16 Q 20 18 23 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="20" y1="20" x2="20" y2="30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="20" y1="23" x2="14" y2="27" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="20" y1="23" x2="26" y2="27" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="20" y1="30" x2="16" y2="38" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="20" y1="30" x2="24" y2="38" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <span class="logo-text">Stack Man</span>
+                </a>
+                <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单"><span class="hamburger"></span></button>
+                <nav class="nav-menu" id="navMenu">
+                    <a href="index.html" class="nav-link">首页</a>
+                    <a href="about.html" class="nav-link">关于</a>
+                    <div class="nav-dropdown">
+                        <button class="nav-link dropdown-toggle">服务 <i class="fas fa-chevron-down"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="services/competition.html" class="dropdown-item">竞赛培训</a>
+                            <a href="services/school.html" class="dropdown-item">校方合作</a>
+                            <a href="services/research.html" class="dropdown-item">教研成果</a>
+                            <a href="services/policy.html" class="dropdown-item">政策资讯</a>
+                            <a href="services/cases.html" class="dropdown-item">成长路径</a>
+                        </div>
+                    </div>
+                    <a href="docs.html" class="nav-link">文档</a>
+                    <a href="blog.html" class="nav-link">博客</a>
+                    <a href="contact.html" class="nav-link">联系</a>
+                    <button class="theme-toggle" id="themeToggle" aria-label="切换主题"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">隐私说明</h1>
+                <p class="page-subtitle">让每一次咨询都清楚、适度、可控</p>
+            </div>
+        </section>
+        <section class="article-section privacy-section">
+            <div class="container">
+                <article class="article-shell">
+                    <p>本网站用于介绍信息学竞赛培训、学习规划和校方合作服务。我们只在你主动提交咨询时使用必要的信息。</p>
+                    <h2>我们可能使用的信息</h2>
+                    <ul>
+                        <li>姓名、邮箱或你在留言中主动提供的联系方式；</li>
+                        <li>学生年级、学习基础、目标和期望课程形式；</li>
+                        <li>你主动填写的咨询内容。</li>
+                    </ul>
+                    <h2>信息如何使用</h2>
+                    <p>这些信息仅用于回复课程咨询、沟通入学测评、提供学习建议或处理校方合作请求。网站不会要求你提交身份证号、家庭住址、支付信息等敏感资料。</p>
+                    <h2>邮件与微信咨询</h2>
+                    <p>网站表单不会把内容保存到网站服务器。提交表单后，浏览器会尝试打开你的邮件客户端；你也可以选择复制微信号后自行联系。邮件或微信中的后续信息将按照对应平台的隐私规则处理。</p>
+                    <h2>你的选择</h2>
+                    <p>如果你希望删除已经发送的咨询内容，或不再接受后续联系，可以通过 <a href="mailto:1825253292@qq.com">1825253292@qq.com</a> 联系我。</p>
+                    <p class="article-meta">最后更新：2026 年 9 月</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo"><span class="logo-text">Stack Man</span></div>
+                    <p class="footer-slogan">懂算法的段子手，信息学竞赛助手</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column"><h4>服务</h4><ul><li><a href="services/competition.html">竞赛培训</a></li><li><a href="services/school.html">校方合作</a></li></ul></div>
+                    <div class="footer-column"><h4>关于</h4><ul><li><a href="about.html">关于我</a></li><li><a href="contact.html">联系我</a></li><li><a href="privacy.html">隐私说明</a></li></ul></div>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 Stack Man.</p></div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
