@@ -1,0 +1,10 @@
+{
+  "name": "stackman-submission-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Lightweight student submission API for Stack Man",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

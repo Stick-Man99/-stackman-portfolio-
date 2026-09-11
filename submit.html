@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="向 Stack Man 学习交流平台提交学习笔记、算法题解和竞赛总结。">
+    <title>学生投稿 - Stack Man</title>
+    <link rel="stylesheet" href="css/style.css?v=20260910">
+    <script>(function(){document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');})();</script>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    <header class="navbar" id="navbar">
+        <div class="container"><div class="nav-content">
+            <a href="index.html" class="logo"><svg class="logo-stickman" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="14" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="18" cy="12" r="1" fill="currentColor"/><circle cx="22" cy="12" r="1" fill="currentColor"/><path d="M17 16 Q20 18 23 16" fill="none" stroke="currentColor" stroke-width="1.5"/><line x1="20" y1="20" x2="20" y2="30" stroke="currentColor" stroke-width="1.5"/><line x1="20" y1="23" x2="14" y2="27" stroke="currentColor" stroke-width="1.5"/><line x1="20" y1="23" x2="26" y2="27" stroke="currentColor" stroke-width="1.5"/><line x1="20" y1="30" x2="16" y2="38" stroke="currentColor" stroke-width="1.5"/><line x1="20" y1="30" x2="24" y2="38" stroke="currentColor" stroke-width="1.5"/></svg><span class="logo-text">Stack Man</span></a>
+            <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单"><span class="hamburger"></span></button>
+            <nav class="nav-menu" id="navMenu"><a href="index.html" class="nav-link">首页</a><a href="about.html" class="nav-link">关于</a><div class="nav-dropdown"><button class="nav-link dropdown-toggle">服务 <i class="fas fa-chevron-down"></i></button><div class="dropdown-menu"><a href="services/competition.html" class="dropdown-item">竞赛培训</a><a href="services/school.html" class="dropdown-item">校方合作</a><a href="services/cases.html" class="dropdown-item">成长路径</a></div></div><a href="docs.html" class="nav-link">文档</a><a href="blog.html" class="nav-link active">博客</a><a href="contact.html" class="nav-link">联系</a><button class="theme-toggle" id="themeToggle" aria-label="切换主题"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></button></nav>
+        </div></div>
+    </header>
+
+    <main>
+        <section class="page-header"><div class="container"><h1 class="page-title">学生投稿</h1><p class="page-subtitle">把学会的内容写下来，也帮助别人学会</p></div></section>
+        <section class="submission-section"><div class="container">
+            <div class="submission-intro"><span class="eyebrow">学习交流平台</span><h2>提交学习笔记、题解或竞赛总结</h2><p>文章会先进入待审核队列。审核通过后，才会发布到博客。请使用昵称，不要填写姓名、学校、班级、联系方式等个人信息。</p></div>
+            <form class="submission-form" id="submission-form"><input type="hidden" name="problem_code" id="submission-problem-code">
+                <div class="submission-fields">
+                    <div class="form-group"><label for="submission-title">文章标题 *</label><input id="submission-title" name="title" required maxlength="120" placeholder="例如：我第一次理解动态规划"></div>
+                    <div class="form-group"><label for="submission-author">作者昵称 *</label><input id="submission-author" name="author" required maxlength="40" placeholder="例如：小明同学"></div>
+                    <div class="form-group"><label for="submission-grade">年级范围</label><select id="submission-grade" name="grade"><option value="">请选择</option><option>小学低年级</option><option>小学高年级</option><option>初中</option><option>高中</option></select></div>
+                    <div class="form-group"><label for="submission-category">文章类型 *</label><select id="submission-category" name="category" required><option value="">请选择</option><option value="note">学习笔记</option><option value="solution">算法题解</option><option value="contest">竞赛总结</option><option value="reflection">学习思考</option></select></div>
+                    <div class="form-group submission-wide"><label for="submission-link">洛谷题目链接（可选）</label><input id="submission-link" name="luogu_url" type="url" placeholder="https://www.luogu.com.cn/problem/..."></div>
+                    <div class="form-group submission-wide"><label for="submission-visibility">希望的公开范围</label><select id="submission-visibility" name="visibility"><option value="public">公开展示</option><option value="member">未来会员可见</option><option value="private">仅供老师审核</option></select></div>
+                </div>
+                <div class="submission-editor-grid">
+                    <div class="form-group"><label for="submission-content">Markdown 正文 *</label><textarea id="submission-content" name="content" required placeholder="# 我的学习笔记\n\n把你的思路写下来，可以使用 Markdown。\n\n- 可以写列表\n- 可以贴代码\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n```"></textarea></div>
+                    <div class="form-group"><label>实时预览</label><article class="markdown-preview" id="markdown-preview"><p class="preview-empty">输入正文后，这里会显示预览。</p></article></div>
+                </div>
+                <div class="submission-actions"><button type="button" class="btn btn-secondary" id="save-draft">保存本机草稿</button><button type="submit" class="btn btn-primary">提交审核 <i class="fas fa-paper-plane"></i></button></div>
+                <p class="submission-status" id="submission-status" role="status" aria-live="polite"></p>
+                <p class="submission-note">当前为无账号投稿原型。正式上线后，提交内容会进入共享审核后台，不会直接公开。</p>
+            </form>
+        </div></section>
+        <section class="markdown-guide-section"><div class="container"><div class="markdown-guide-card"><div><span class="eyebrow">投稿小助手</span><h2>不会写 Markdown？先看一篇示例</h2><p>这里整理了标题、列表、链接、代码块和题解结构，照着写就可以完成第一篇投稿。</p></div><a class="btn btn-secondary" href="blog/markdown-writing-guide.html">查看 Markdown 语法示例 <i class="fas fa-arrow-right"></i></a></div></div></section>
+    </main>
+
+    <footer class="footer"><div class="container"><div class="footer-content"><div class="footer-brand"><div class="footer-logo"><span class="logo-text">Stack Man</span></div><p class="footer-slogan">懂算法的段子手，信息学竞赛助手</p></div><div class="footer-links"><div class="footer-column"><h4>学习交流</h4><ul><li><a href="blog.html">博客文章</a></li><li><a href="submit.html">学生投稿</a></li></ul></div><div class="footer-column"><h4>联系</h4><ul><li><a href="contact.html">联系我</a></li><li><a href="privacy.html">隐私说明</a></li></ul></div></div></div><div class="footer-bottom"><p>&copy; 2026 Stack Man.</p></div></div></footer>
+    <script>window.STACKMAN_SUBMISSION_API = '/api';</script><script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script><script src="js/main.js"></script><script src="js/submission.js?v=20260911-1"></script>
+</body>
+</html>
