@@ -22,7 +22,7 @@
         <section class="page-header"><div class="container"><h1 class="page-title">学生投稿</h1><p class="page-subtitle">把学会的内容写下来，也帮助别人学会</p></div></section>
         <section class="submission-section"><div class="container">
             <div class="submission-intro"><span class="eyebrow">学习交流平台</span><h2>提交学习笔记、题解或竞赛总结</h2><p>文章会先进入待审核队列。审核通过后，才会发布到博客。请使用昵称，不要填写姓名、学校、班级、联系方式等个人信息。</p></div>
-            <form class="submission-form" id="submission-form">
+            <form class="submission-form" id="submission-form"><input type="hidden" name="problem_code" id="submission-problem-code">
                 <div class="submission-fields">
                     <div class="form-group"><label for="submission-title">文章标题 *</label><input id="submission-title" name="title" required maxlength="120" placeholder="例如：我第一次理解动态规划"></div>
                     <div class="form-group"><label for="submission-author">作者昵称 *</label><input id="submission-author" name="author" required maxlength="40" placeholder="例如：小明同学"></div>
@@ -44,6 +44,6 @@
     </main>
 
     <footer class="footer"><div class="container"><div class="footer-content"><div class="footer-brand"><div class="footer-logo"><span class="logo-text">Stack Man</span></div><p class="footer-slogan">懂算法的段子手，信息学竞赛助手</p></div><div class="footer-links"><div class="footer-column"><h4>学习交流</h4><ul><li><a href="blog.html">博客文章</a></li><li><a href="submit.html">学生投稿</a></li></ul></div><div class="footer-column"><h4>联系</h4><ul><li><a href="contact.html">联系我</a></li><li><a href="privacy.html">隐私说明</a></li></ul></div></div></div><div class="footer-bottom"><p>&copy; 2026 Stack Man.</p></div></div></footer>
-    <script>window.STACKMAN_SUBMISSION_API = '/api';</script><script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script><script src="js/main.js"></script><script src="js/submission.js"></script>
+    <script>window.STACKMAN_SUBMISSION_API = '/api';</script><script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script><script src="js/main.js"></script><script src="js/submission.js?v=20260911-1"></script>
 </body>
 </html>

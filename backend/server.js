@@ -11,6 +11,8 @@ const ALLOWED_ORIGINS = new Set([
   'https://stick-man99.github.io',
   'http://127.0.0.1:8082',
   'http://localhost:8082',
+  'http://127.0.0.1:8083',
+  'http://localhost:8083',
 ]);
 
 let writeQueue = Promise.resolve();
@@ -61,6 +63,10 @@ function isLuoguUrl(value) {
   }
 }
 
+function isValidProblemCode(value) {
+  return !value || /^[A-Za-z0-9_\-]{1,40}$/.test(String(value));
+}
+
 function isAdmin(request) {
   return Boolean(ADMIN_TOKEN) && request.headers.authorization === `Bearer ${ADMIN_TOKEN}`;
 }
@@ -72,6 +78,7 @@ function toPublicArticle(item) {
     author: item.author,
     grade: item.grade,
     category: item.category,
+    problem_code: item.problem_code || '',
     luogu_url: item.luogu_url,
     content: item.content,
     created_at: item.created_at,
@@ -110,8 +117,10 @@ async function handle(request, response) {
   }
   if (url.pathname === '/articles' && request.method === 'GET') {
     const items = await readStore();
+    const problemCode = url.searchParams.get('problem_code') || '';
     const articles = items
       .filter((item) => item.status === 'approved' && item.visibility === 'public')
+      .filter((item) => !problemCode || item.problem_code === problemCode)
       .map(toPublicArticle);
     sendJson(response, 200, { items: articles }, origin);
     return;
@@ -127,7 +136,7 @@ async function handle(request, response) {
   if (url.pathname === '/submissions' && request.method === 'POST') {
     const body = await readBody(request);
     if (!body.title || !body.author || !body.category || !body.content) return sendJson(response, 400, { error: 'invalid_submission' }, origin);
-    if (String(body.title).length > 120 || String(body.author).length > 40 || String(body.content).length > 50000 || !isLuoguUrl(body.luogu_url)) return sendJson(response, 400, { error: 'invalid_field' }, origin);
+    if (String(body.title).length > 120 || String(body.author).length > 40 || String(body.content).length > 50000 || !isLuoguUrl(body.luogu_url) || !isValidProblemCode(body.problem_code)) return sendJson(response, 400, { error: 'invalid_field' }, origin);
     const now = new Date().toISOString();
     const item = {
       id: crypto.randomUUID(),
@@ -135,6 +144,7 @@ async function handle(request, response) {
       author: String(body.author).trim(),
       grade: String(body.grade || ''),
       category: String(body.category),
+      problem_code: String(body.problem_code || '').trim(),
       luogu_url: String(body.luogu_url || ''),
       visibility: String(body.visibility || 'public'),
       content: String(body.content),

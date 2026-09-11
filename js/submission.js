@@ -88,6 +88,25 @@
 
     const getFormData = () => Object.fromEntries(new FormData(form).entries());
 
+    const applyProblemContext = () => {
+        const params = new URLSearchParams(window.location.search);
+        const problem = params.get('problem');
+        if (!problem) return;
+        const topic = params.get('topic') || '';
+        const luoguUrl = params.get('luogu_url') || '';
+        const titleField = form.elements.namedItem('title');
+        const categoryField = form.elements.namedItem('category');
+        const linkField = form.elements.namedItem('luogu_url');
+        const problemField = form.elements.namedItem('problem_code');
+        if (titleField && !titleField.value) titleField.value = `${problem} 题解`;
+        if (categoryField) categoryField.value = 'solution';
+        if (linkField && luoguUrl && !linkField.value) linkField.value = luoguUrl;
+        if (problemField) problemField.value = problem;
+        if (!contentField.value) {
+            contentField.value = `# ${problem} 题解\n\n## 题目思路\n\n## 代码实现\n\n${topic ? `知识点：${topic}\n` : ''}`;
+        }
+    };
+
     const saveDraft = () => {
         localStorage.setItem(draftKey, JSON.stringify(getFormData()));
         setStatus('草稿已保存在这台设备上，尚未提交。', 'success');
@@ -151,6 +170,7 @@
         }
     });
 
+    applyProblemContext();
     restoreDraft();
     updatePreview();
 })();

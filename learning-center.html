@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stack Man 学习中心：学习地图、信奥题单、知识文档与学生题解。">
+    <title>学习中心 - Stack Man</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='35' r='15' fill='none' stroke='%236366f1' stroke-width='3'/%3E%3Ccircle cx='45' cy='32' r='2' fill='%236366f1'/%3E%3Ccircle cx='55' cy='32' r='2' fill='%236366f1'/%3E%3Cpath d='M 42 40 Q 50 45 58 40' fill='none' stroke='%236366f1' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css?v=2026040620">
+    <link rel="stylesheet" href="css/learning-center.css?v=20260910">
+    <script>
+        (function () {
+            document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
+        })();
+    </script>
+</head>
+<body class="learning-center-page learning-overview-page">
+    <header class="navbar scrolled" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <svg class="logo-stickman" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <circle cx="20" cy="14" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <circle cx="18" cy="12" r="1" fill="currentColor"/><circle cx="22" cy="12" r="1" fill="currentColor"/>
+                        <path d="M 17 16 Q 20 18 23 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="20" y1="20" x2="20" y2="30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="20" y1="23" x2="14" y2="27" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="20" y1="23" x2="26" y2="27" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="20" y1="30" x2="16" y2="38" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="20" y1="30" x2="24" y2="38" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <span class="logo-text">Stack Man</span>
+                </a>
+                <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单"><span class="hamburger"></span></button>
+                <nav class="nav-menu" id="navMenu">
+                    <a href="index.html" class="nav-link">首页</a>
+                    <a href="about.html" class="nav-link">关于</a>
+                    <div class="nav-dropdown">
+                        <button class="nav-link dropdown-toggle">服务 <i class="fas fa-chevron-down"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="services/competition.html" class="dropdown-item">竞赛服务</a>
+                            <a href="services/school.html" class="dropdown-item">校方合作</a>
+                            <a href="services/research.html" class="dropdown-item">教研成果</a>
+                            <a href="services/policy.html" class="dropdown-item">政策资讯</a>
+                            <a href="services/cases.html" class="dropdown-item">学员案例</a>
+                        </div>
+                    </div>
+                    <div class="nav-dropdown active">
+                        <button class="nav-link dropdown-toggle active">学习中心 <i class="fas fa-chevron-down"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="learning-map.html" class="dropdown-item">学习地图</a>
+                            <a href="docs.html" class="dropdown-item">知识文档</a>
+                            <a href="problem-bank.html" class="dropdown-item">专题题单</a>
+                            <a href="blog.html" class="dropdown-item">学习博客</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-link">联系</a>
+                    <button class="theme-toggle" id="themeToggle" aria-label="切换主题"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="learning-hero">
+            <div class="container">
+                <div class="learning-hero-copy">
+                    <span class="eyebrow">LEARNING CENTER · 第一版样板</span>
+                    <h1>把算法学习，走成一张地图</h1>
+                    <p>从知识路径到专题题单，再到洛谷练习和博客题解，让每一次训练都知道下一步往哪里走。</p>
+                    <div class="learning-hero-actions">
+                        <a class="btn btn-primary" href="#learning-map">探索学习地图</a>
+                        <a class="btn btn-secondary" href="#problem-bank">查看题单样板</a>
+                    </div>
+                </div>
+                <div class="learning-hero-signal" aria-label="学习中心结构">
+                    <div class="signal-orbit signal-orbit-one"></div>
+                    <div class="signal-orbit signal-orbit-two"></div>
+                    <div class="signal-core"><i class="fas fa-route"></i><span>学习中心</span></div>
+                    <span class="signal-node signal-node-map">地图</span>
+                    <span class="signal-node signal-node-docs">文档</span>
+                    <span class="signal-node signal-node-problems">题单</span>
+                    <span class="signal-node signal-node-blog">博客</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="learning-hub section-padding">
+            <div class="container">
+                <div class="section-heading compact-heading">
+                    <span class="eyebrow">四个入口</span>
+                    <h2>从规划到复盘，形成学习闭环</h2>
+                </div>
+                <div class="learning-hub-grid">
+                    <a href="learning-map.html" class="learning-hub-card hub-map"><span class="hub-icon"><i class="fas fa-diagram-project"></i></span><span><strong>学习地图</strong><small>看清知识之间的前置关系</small></span><i class="fas fa-arrow-right hub-arrow"></i></a>
+                    <a href="docs.html" class="learning-hub-card hub-docs"><span class="hub-icon"><i class="fas fa-book-open"></i></span><span><strong>知识文档</strong><small>系统学习算法与数据结构</small></span><i class="fas fa-arrow-right hub-arrow"></i></a>
+                    <a href="problem-bank.html" class="learning-hub-card hub-problems"><span class="hub-icon"><i class="fas fa-list-check"></i></span><span><strong>专题题单</strong><small>按阶段、知识点和训练位置练习</small></span><i class="fas fa-arrow-right hub-arrow"></i></a>
+                    <a href="blog.html" class="learning-hub-card hub-blog"><span class="hub-icon"><i class="fas fa-pen-nib"></i></span><span><strong>学习博客</strong><small>阅读题解，也参与内容共建</small></span><i class="fas fa-arrow-right hub-arrow"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="map-section section-padding" id="learning-map">
+            <div class="container">
+                <div class="section-heading map-heading">
+                    <div><span class="eyebrow">01 · KNOWLEDGE GALAXY</span><h2>信奥知识星系</h2><p>先看领域星系，放大后进入专题，再继续探索细知识点。没有题目的节点也会保留，等待后续共建。</p></div>
+                    <div class="map-controls" aria-label="地图缩放控制"><button type="button" id="mapBack" aria-label="返回上一级">返回</button><button type="button" id="mapZoomOut" aria-label="缩小地图">−</button><button type="button" id="mapZoomReset" aria-label="重置地图">100%</button><button type="button" id="mapZoomIn" aria-label="放大地图">＋</button></div>
+                </div>
+                <div class="galaxy-breadcrumb" id="galaxyBreadcrumb"><span class="is-current">信奥知识体系</span><span class="breadcrumb-hint">点击领域或放大探索</span></div>
+                <div class="map-layout galaxy-layout">
+                    <div class="galaxy-shell" id="mapShell">
+                        <div class="map-legend galaxy-legend"><span><i class="legend-dot legend-j"></i>J 组基础</span><span><i class="legend-dot legend-s"></i>S 组 / NOIP</span><span><i class="legend-dot legend-noi"></i>省选 / NOI</span><span><i class="legend-dot legend-empty"></i>待补充</span></div>
+                        <div class="map-viewport" id="mapViewport" aria-label="可缩放信奥知识星系">
+                            <div class="galaxy-stage" id="mapStage">
+                                <svg class="galaxy-lines" id="galaxyLines" aria-hidden="true"></svg>
+                                <div class="galaxy-nodes" id="galaxyNodes"></div>
+                            </div>
+                        </div>
+                        <div class="galaxy-tip"><i class="fas fa-hand-pointer"></i><span>拖动浏览 · 滚轮或双指缩放 · 点击节点展开</span></div>
+                    </div>
+                    <aside class="map-detail galaxy-detail" id="mapDetail" aria-live="polite">
+                        <span class="eyebrow">节点详情</span>
+                        <div class="detail-status" id="detailStatus"><i class="fas fa-circle"></i>知识节点</div>
+                        <h3 id="mapDetailTitle">信奥知识体系</h3>
+                        <p id="mapDetailText">从大领域进入专题星系，再连接到文档、题单和博客题解。</p>
+                        <div class="detail-meta" id="detailMeta"><span>6 个主领域</span><span>多层知识节点</span></div>
+                        <div class="map-detail-links" id="mapDetailLinks"><a href="#problem-bank" class="detail-link"><i class="fas fa-list-check"></i>查看关联题单</a><a href="docs.html" class="detail-link"><i class="fas fa-book-open"></i>打开知识文档</a></div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <section class="problem-bank-section section-padding" id="problem-bank">
+            <div class="container">
+                <div class="section-heading problem-heading"><div><span class="eyebrow">02 · PROBLEM BANK</span><h2>专题题单样板</h2><p>数据来自原题单的真实专题结构；洛谷题名和官方难度将在同步阶段补齐。</p></div><span class="data-status"><i class="fas fa-circle"></i>公开查看版</span></div>
+                <div class="problem-toolbar">
+                    <div class="stage-tabs" role="tablist" aria-label="竞赛阶段"><button class="stage-tab is-active" data-stage="all" role="tab">全部阶段</button><button class="stage-tab" data-stage="CSP-J" role="tab">CSP-J</button><button class="stage-tab" data-stage="CSP-S/NOIP" role="tab">CSP-S / NOIP</button><button class="stage-tab" data-stage="NOI" role="tab">省选 / NOI</button></div>
+                    <label class="problem-search"><i class="fas fa-search"></i><input id="problemSearch" type="search" placeholder="搜索题号或知识点" autocomplete="off"><span class="search-hint">⌘ K</span></label>
+                </div>
+                <div class="filter-row" id="domainFilters"><button class="filter-chip is-active" data-domain="all">全部知识领域</button><button class="filter-chip" data-domain="基础算法">基础算法</button><button class="filter-chip" data-domain="数据结构">数据结构</button><button class="filter-chip" data-domain="图论">图论</button><button class="filter-chip" data-domain="动态规划">动态规划</button></div>
+                <div class="problem-grid" id="problemGrid"></div>
+                <div class="empty-state" id="problemEmpty" hidden><i class="fas fa-compass"></i><h3>还没有找到匹配内容</h3><p>试试搜索“队列”“DP”或题号。</p></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer learning-footer"><div class="container"><div class="footer-bottom"><p>Stack Man 学习中心 · 当前为公开查看样板</p><a href="submit.html">参与题解共建 <i class="fas fa-arrow-right"></i></a></div></div></footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

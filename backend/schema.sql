@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS submissions (
     author_nickname TEXT NOT NULL,
     grade_range TEXT,
     category TEXT NOT NULL,
+    problem_code TEXT,
     luogu_url TEXT,
     visibility TEXT NOT NULL DEFAULT 'public',
     content TEXT NOT NULL,
